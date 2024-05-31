@@ -154,6 +154,24 @@ grammar term, M :: 'term_' ::=
       (element)
       (string))))
 
+===================
+production mod
+===================
+grammar term, M :: 'term_' ::=
+  | x               :: S:: var
+---
+(source_file
+  (grammar_rule
+    (id_desc
+      (id))
+    (id_desc
+      (id))
+    (string)
+    (production
+      (element)
+      (id)
+      (string))))
+
 ======================
 multiple productions
 ======================
@@ -206,3 +224,31 @@ term, M :: 'term_' ::=
       (string)
       (homomorphism))))
 
+===================
+multiple grammar blocks
+===================
+grammar
+term, M :: 'term_' ::=
+  | x               ::  :: var
+type, t :: 'ty_' ::=
+  | a               ::  :: var
+---
+(source_file
+  (grammar_rule
+    (id_desc
+      (id))
+    (id_desc
+      (id))
+    (string)
+    (production
+      (element)
+      (string)))
+  (grammar_rule
+    (id_desc
+      (id))
+    (id_desc
+      (id))
+    (string)
+    (production
+      (element)
+      (string))))
