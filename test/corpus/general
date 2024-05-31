@@ -1,0 +1,46 @@
+=========================
+grammar with metavars
+=========================
+
+metavar a {{ tex \alpha }}, b, c ::=
+indexvar i, j ::=
+
+grammar
+
+type, t :: 'ty'_ ::=
+  | a                   ::  :: var
+  | </ ti // -> // i /> ::  :: arrow
+---
+(source_file
+  (metavardefn
+    (id_desc
+      (id)
+      (homomorphism))
+    (id_desc
+      (id))
+    (id_desc
+      (id)))
+  (metavardefn
+    (id_desc
+      (id))
+    (id_desc
+      (id)))
+  (grammar_rule
+    (id_desc
+      (id))
+    (id_desc
+      (id))
+    (string)
+    (production
+      (element)
+      (string))
+    (production
+      (element
+        (element)
+        (string)
+        (comprehension_bound
+          (id)))
+        (string))))
+
+
+

@@ -1,0 +1,125 @@
+=======================
+single comment file
+=======================
+% Hello, world!
+---
+(source_file
+  (comment))
+
+=======================
+Multi-line comment
+=======================
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Hello, world!
+%%%%%%%%%%%%%%%%%%%%%%%%
+---
+(source_file
+  (comment)
+  (comment)
+  (comment))
+
+===================
+comment before file
+===================
+% This file has grammar rules
+grammar
+type, t :: 't_' ::=
+---
+(source_file
+  (comment)
+  (grammar_rule
+    (id_desc
+      (id))
+    (id_desc
+      (id))
+    (string)))
+
+===================
+comment before and after file
+===================
+% This file has grammar rules
+grammar
+type, t :: 't_' ::=
+% todo
+---
+(source_file
+  (comment)
+  (grammar_rule
+    (id_desc
+      (id))
+    (id_desc
+      (id))
+    (string))
+  (comment))
+
+===================
+Comment at the end of a line
+===================
+grammar
+type, t :: 't_' ::= % finish this later
+---
+(source_file
+  (grammar_rule
+    (id_desc
+      (id))
+    (id_desc
+      (id))
+    (string))
+  (comment))
+
+==================================
+Comment in between rule lines
+==================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: 'psi_wf_'
+by
+
+gg |- z1
+gg |- z2
+% TODO: does z3 need to be well-formed?
+gg |- z3
+---------------- :: Combo
+|- z1 o z2 ~ z3
+
+---
+(source_file
+  (defnclass
+    (defn
+      (element)
+      (element)
+      (string)
+      (defn_rule
+        (rule_line)
+        (rule_line)
+        (comment)
+        (rule_line)
+        (rule_separator)
+        (rule_line)))))
+
+==================================
+Comment after 'by' token
+==================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: 'psi_wf_'
+by % Add more rules later
+
+---------------- :: Combo
+|- z1 o z2 ~ z3
+
+---
+(source_file
+  (defnclass
+    (defn
+      (element)
+      (element)
+      (string)
+      (comment)
+      (defn_rule
+        (rule_separator)
+        (rule_line)))))

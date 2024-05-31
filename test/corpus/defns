@@ -1,0 +1,271 @@
+=====================
+empty defnclass
+=====================
+defns
+typing :: 'ty_' ::=
+---
+(source_file
+  (defnclass))
+
+========================
+missing defnclass name
+:error
+========================
+defns
+:: 'ty_' ::=
+---
+
+==================================
+single defn block with no rules
+==================================
+defns
+typing :: 'ty_' ::=
+
+defn
+GG |- x : t ~> X :: :: 'typing_'
+by
+
+---
+(source_file
+  (defnclass
+    (defn
+      (element)
+      (element)
+      (element)
+      (element)
+      (element)
+      (element)
+      (element)
+      (string))))
+
+==================================
+single defn block with no rules and no newline
+:skip
+==================================
+defns
+typing :: 'ty_' ::=
+
+defn
+GG |- x : t ~> X :: :: 'typing_'
+by
+---
+(source_file
+  (defnclass
+    (defn
+      (element)
+      (element)
+      (element)
+      (element)
+      (element)
+      (element)
+      (element)
+      (string))))
+
+=====================================================
+single defn block with no rules and homomorphism
+=====================================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: 'psi_wf_' {{ tex [[|-]] \color{blue} [[psi]] \normalcolor }}
+by
+
+---
+(source_file
+  (defnclass
+    (defn
+      (element)
+      (element)
+      (string)
+      (homomorphism))))
+
+
+=====================================================
+single defn block with one rule with no predicates
+=====================================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: 'psi_wf_'
+by
+
+---------------- :: Combo
+|- z1 o z2 ~ z3
+
+---
+(source_file
+  (defnclass
+    (defn
+      (element)
+      (element)
+      (string)
+      (defn_rule
+        (rule_separator)
+        (rule_line)))))
+
+=====================================================
+inline conclusion
+:error
+=====================================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: 'psi_wf_'
+by
+
+---------------- :: Combo |- z1 o z2 ~ z3
+
+---
+
+=====================================================
+multiple conclusions in one rule
+:error
+=====================================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: 'psi_wf_'
+by
+
+---------------- :: Combo
+|- z1 o z2 ~ z3
+|- z1 < d z2
+---
+
+=====================================================
+single defn block with one rule with one predicate
+=====================================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: 'psi_wf_'
+by
+
+gg |- z3
+---------------- :: Combo
+|- z1 o z2 ~ z3
+
+---
+(source_file
+  (defnclass
+    (defn
+      (element)
+      (element)
+      (string)
+      (defn_rule
+        (rule_line)
+        (rule_separator)
+        (rule_line)))))
+
+=========================================================
+single defn block with one rule with multiple predicates
+=========================================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: 'psi_wf_'
+by
+
+gg |- z1
+gg |- z2
+gg |- z3
+---------------- :: Combo
+|- z1 o z2 ~ z3
+
+---
+(source_file
+  (defnclass
+    (defn
+      (element)
+      (element)
+      (string)
+      (defn_rule
+        (rule_line)
+        (rule_line)
+        (rule_line)
+        (rule_separator)
+        (rule_line)))))
+
+=====================================================
+multiple rules in a single defn block
+=====================================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: 'psi_wf_'
+by
+
+---------------- :: Combo
+|- z1 o z2 ~ z3
+
+
+|- d
+---------------- :: Sub
+|- z1 < d z2
+
+---
+(source_file
+  (defnclass
+    (defn
+      (element)
+      (element)
+      (string)
+      (defn_rule
+        (rule_separator)
+        (rule_line))
+      (defn_rule
+        (rule_line)
+        (rule_separator)
+        (rule_line)))))
+
+=====================================================
+multiple defnclasses
+=====================================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: 'psi_wf_'
+by
+
+---------------- :: Combo
+|- z1 o z2 ~ z3
+
+defns
+kinding :: 'k' ::=
+
+defn
+gg |- t : k :: :: 'kind_'
+by
+
+------------------ :: BoolTrue
+|- true : boolean
+
+---
+(source_file
+  (defnclass
+    (defn
+      (element)
+      (element)
+      (string)
+      (defn_rule
+        (rule_separator)
+        (rule_line))))
+  (defnclass
+    (defn
+      (element)
+      (element)
+      (element)
+      (element)
+      (element)
+      (string)
+      (defn_rule
+        (rule_separator)
+        (rule_line)))))

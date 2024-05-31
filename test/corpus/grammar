@@ -1,0 +1,208 @@
+===================
+no productions
+===================
+grammar
+type, t :: 't_' ::=
+---
+(source_file
+  (grammar_rule
+    (id_desc
+      (id))
+    (id_desc
+      (id))
+    (string)))
+
+===========================
+no identifier declarations
+:error
+===========================
+grammar
+ :: 't_' ::=
+ ---
+
+===================
+one production
+===================
+grammar
+
+term, M :: 'term_' ::=
+  | x               ::  :: var
+---
+(source_file
+  (grammar_rule
+    (id_desc
+      (id))
+    (id_desc
+      (id))
+    (string)
+    (production
+      (element)
+      (string))))
+
+===================
+one production with dots
+===================
+grammar
+
+term, M :: 'term_' ::=
+  | x1 ... xn            ::  :: var
+---
+(source_file
+  (grammar_rule
+    (id_desc
+      (id))
+    (id_desc
+      (id))
+    (string)
+    (production
+      (element)
+      (element
+        (dots))
+      (element)
+      (string))))
+
+===================
+one production with simple comprehension
+===================
+grammar
+
+term, M :: 'term_' ::=
+  | </ ggi |- c // i />            ::  :: var
+---
+(source_file
+  (grammar_rule
+    (id_desc
+      (id))
+    (id_desc
+      (id))
+    (string)
+    (production
+      (element
+        (element)
+        (element)
+        (element)
+        (comprehension_bound
+          (id)))
+      (string))))
+
+===================
+one production with bounded comprehension
+===================
+grammar
+
+term, M :: 'term_' ::=
+  | </ ggi |- c // i IN n />            ::  :: var
+---
+(source_file
+  (grammar_rule
+    (id_desc
+      (id))
+    (id_desc
+      (id))
+    (string)
+    (production
+      (element
+        (element)
+        (element)
+        (element)
+        (comprehension_bound
+          (id)
+          (id)))
+      (string))))
+
+===================
+one production with bounded comprehension dots
+===================
+grammar
+
+term, M :: 'term_' ::=
+  | </ ggi |- c // i IN 1 .. n />            ::  :: var
+---
+(source_file
+  (grammar_rule
+    (id_desc
+      (id))
+    (id_desc
+      (id))
+    (string)
+    (production
+      (element
+        (element)
+        (element)
+        (element)
+        (comprehension_bound
+          (id)
+          (id)
+          (dots)
+          (id)))
+      (string))))
+
+===================
+inline grammar token
+===================
+grammar term, M :: 'term_' ::=
+  | x               ::  :: var
+---
+(source_file
+  (grammar_rule
+    (id_desc
+      (id))
+    (id_desc
+      (id))
+    (string)
+    (production
+      (element)
+      (string))))
+
+======================
+multiple productions
+======================
+grammar
+term, M :: 'term_' ::=
+  | x               ::  :: var
+  | \ x . M         ::  :: lam
+---
+(source_file
+  (grammar_rule
+    (id_desc
+      (id))
+    (id_desc
+      (id))
+    (string)
+    (production
+      (element)
+      (string))
+    (production
+      (element)
+      (element)
+      (element)
+      (element)
+      (string))))
+
+======================
+multiple productions with homomorphisms
+======================
+grammar
+term, M :: 'term_' ::=
+  | x               ::  :: var {{ tex [[x]] }}
+  | \ x . M         ::  :: lam {{ tex \lambda [[x]] . [[M]] }}
+---
+(source_file
+  (grammar_rule
+    (id_desc
+      (id))
+    (id_desc
+      (id))
+    (string)
+    (production
+      (element)
+      (string)
+      (homomorphism))
+    (production
+      (element)
+      (element)
+      (element)
+      (element)
+      (string)
+      (homomorphism))))
+
