@@ -102,8 +102,15 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "defn"
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 10,
+            "content": {
+              "type": "STRING",
+              "value": "defn"
+            }
+          }
         },
         {
           "type": "REPEAT",
@@ -122,6 +129,14 @@
             "type": "SYMBOL",
             "name": "id"
           }
+        },
+        {
+          "type": "STRING",
+          "value": "::"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "id"
         },
         {
           "type": "STRING",
@@ -220,7 +235,7 @@
     },
     "rule_line": {
       "type": "PATTERN",
-      "value": ".*\\n"
+      "value": "\\S.*\\n"
     },
     "grammar_rule": {
       "type": "SEQ",
@@ -510,42 +525,66 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "{{"
-        },
-        {
-          "type": "ALIAS",
+          "type": "FIELD",
+          "name": "open",
           "content": {
-            "type": "SYMBOL",
-            "name": "string"
-          },
-          "named": false,
-          "value": "hom_name"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "ALIAS",
-            "content": {
-              "type": "SYMBOL",
-              "name": "string"
-            },
-            "named": false,
-            "value": "hom_string"
+            "type": "STRING",
+            "value": "{{"
           }
         },
         {
-          "type": "TOKEN",
+          "type": "FIELD",
+          "name": "name",
           "content": {
-            "type": "PREC",
-            "value": 1,
+            "type": "SYMBOL",
+            "name": "hom_name"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "body",
+          "content": {
+            "type": "SYMBOL",
+            "name": "hom_body"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "close",
+          "content": {
+            "type": "TOKEN",
             "content": {
-              "type": "STRING",
-              "value": "}}"
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "STRING",
+                "value": "}}"
+              }
             }
           }
         }
       ]
+    },
+    "hom_name": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "tex"
+        }
+      ]
+    },
+    "hom_body": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "ALIAS",
+        "content": {
+          "type": "SYMBOL",
+          "name": "string"
+        },
+        "named": false,
+        "value": "hom_string"
+      }
     },
     "comment": {
       "type": "TOKEN",
@@ -593,7 +632,7 @@
     },
     "id": {
       "type": "PATTERN",
-      "value": "[a-zA-Z\\d]+"
+      "value": "[a-zA-Z\\d_]+"
     },
     "string": {
       "type": "PATTERN",

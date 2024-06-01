@@ -147,9 +147,60 @@
     }
   },
   {
-    "type": "homomorphism",
+    "type": "hom_body",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "hom_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "homomorphism",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "hom_body",
+            "named": true
+          }
+        ]
+      },
+      "close": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "}}",
+            "named": false
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "hom_name",
+            "named": true
+          }
+        ]
+      },
+      "open": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "{{",
+            "named": false
+          }
+        ]
+      }
+    }
   },
   {
     "type": "id_desc",
@@ -317,10 +368,6 @@
     "named": false
   },
   {
-    "type": "hom_name",
-    "named": false
-  },
-  {
     "type": "hom_string",
     "named": false
   },
@@ -354,6 +401,10 @@
   },
   {
     "type": "symbol",
+    "named": false
+  },
+  {
+    "type": "tex",
     "named": false
   },
   {
