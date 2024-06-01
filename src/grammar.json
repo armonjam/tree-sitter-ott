@@ -57,43 +57,49 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "ALIAS",
+          "type": "FIELD",
+          "name": "class_name",
           "content": {
             "type": "SYMBOL",
             "name": "string"
-          },
-          "named": false,
-          "value": "class_name"
+          }
         },
         {
           "type": "STRING",
           "value": "::"
         },
         {
-          "type": "ALIAS",
+          "type": "FIELD",
+          "name": "namespace_prefix",
           "content": {
             "type": "SYMBOL",
             "name": "string"
-          },
-          "named": false,
-          "value": "namespace_prefix"
+          }
         },
         {
           "type": "STRING",
           "value": "::="
         },
         {
-          "type": "REPEAT",
+          "type": "FIELD",
+          "name": "homomorphism",
           "content": {
-            "type": "SYMBOL",
-            "name": "homomorphism"
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "homomorphism"
+            }
           }
         },
         {
-          "type": "REPEAT",
+          "type": "FIELD",
+          "name": "definition",
           "content": {
-            "type": "SYMBOL",
-            "name": "defn"
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "defn"
+            }
           }
         }
       ]

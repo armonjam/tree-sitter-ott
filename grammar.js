@@ -21,12 +21,13 @@ module.exports = grammar({
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     defnclass: $ => seq(
-      alias($.string, 'class_name'),
+      field('class_name', $.string),
       '::',
-      alias($.string, 'namespace_prefix'),
+      // TODO: use special "namespace" string
+      field('namespace_prefix', $.string),
       '::=',
-      repeat($.homomorphism),
-      repeat($.defn),
+      field('homomorphism', repeat($.homomorphism)),
+      field('definition', repeat($.defn)),
     ),
 
     defn: $ => seq(

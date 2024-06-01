@@ -87,7 +87,9 @@ gg |- z3
 ---
 (source_file
   (defnclass
-    (defn
+    class_name: (string)
+    namespace_prefix: (string)
+    definition: (defn
       (element)
       (element)
       (id)
@@ -118,7 +120,9 @@ by % Add more rules later
 ---
 (source_file
   (defnclass
-    (defn
+    class_name: (string)
+    namespace_prefix: (string)
+    definition: (defn
       (element)
       (element)
       (id)

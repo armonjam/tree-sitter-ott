@@ -5,7 +5,9 @@ defns
 typing :: 'ty_' ::=
 ---
 (source_file
-  (defnclass))
+  (defnclass
+    class_name: (string)
+    namespace_prefix: (string)))
 
 ========================
 missing defnclass name
@@ -28,7 +30,9 @@ by
 ---
 (source_file
   (defnclass
-    (defn
+    class_name: (string)
+    namespace_prefix: (string)
+    definition: (defn
       (element)
       (element)
       (element)
@@ -65,7 +69,9 @@ by
 ---
 (source_file
   (defnclass
-    (defn
+    class_name: (string)
+    namespace_prefix: (string)
+    definition: (defn
       (element)
       (element)
       (element)
@@ -89,14 +95,16 @@ by
 ---
 (source_file
   (defnclass
-    (defn
+    class_name: (string)
+    namespace_prefix: (string)
+    definition: (defn
       (element)
       (element)
       (id)
       (string)
       (homomorphism
-        (hom_name)
-        (hom_body)))))
+        name: (hom_name)
+        body: (hom_body)))))
 
 
 =====================================================
@@ -115,7 +123,9 @@ by
 ---
 (source_file
   (defnclass
-    (defn
+    class_name: (string)
+    namespace_prefix: (string)
+    definition: (defn
       (element)
       (element)
       (id)
@@ -142,7 +152,9 @@ by
 ---
 (source_file
   (defnclass
-    (defn
+    class_name: (string)
+    namespace_prefix: (string)
+    definition: (defn
       (element)
       (element)
       (id)
@@ -201,7 +213,9 @@ gg |- z3
 ---
 (source_file
   (defnclass
-    (defn
+    class_name: (string)
+    namespace_prefix: (string)
+    definition: (defn
       (element)
       (element)
       (id)
@@ -232,7 +246,9 @@ gg |- z3
 ---
 (source_file
   (defnclass
-    (defn
+    class_name: (string)
+    namespace_prefix: (string)
+    definition: (defn
       (element)
       (element)
       (id)
@@ -267,7 +283,9 @@ by
 ---
 (source_file
   (defnclass
-    (defn
+    class_name: (string)
+    namespace_prefix: (string)
+    definition: (defn
       (element)
       (element)
       (id)
@@ -309,7 +327,9 @@ by
 ---
 (source_file
   (defnclass
-    (defn
+    class_name: (string)
+    namespace_prefix: (string)
+    definition: (defn
       (element)
       (element)
       (id)
@@ -319,7 +339,7 @@ by
           line: (dash_line)
           rule_name: (string))
         conclusion: (rule_line)))
-    (defn
+    definition: (defn
       (element)
       (element)
       (element)
@@ -358,7 +378,9 @@ by
 ---
 (source_file
   (defnclass
-    (defn
+    class_name: (string)
+    namespace_prefix: (string)
+    definition: (defn
       (element)
       (element)
       (id)
@@ -369,7 +391,9 @@ by
           rule_name: (string))
         conclusion: (rule_line))))
   (defnclass
-    (defn
+    class_name: (string)
+    namespace_prefix: (string)
+    definition: (defn
       (element)
       (element)
       (element)

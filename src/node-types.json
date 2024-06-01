@@ -93,20 +93,47 @@
   {
     "type": "defnclass",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "defn",
-          "named": true
-        },
-        {
-          "type": "homomorphism",
-          "named": true
-        }
-      ]
+    "fields": {
+      "class_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "definition": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "defn",
+            "named": true
+          }
+        ]
+      },
+      "homomorphism": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "homomorphism",
+            "named": true
+          }
+        ]
+      },
+      "namespace_prefix": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -391,10 +418,6 @@
     "named": false
   },
   {
-    "type": "class_name",
-    "named": false
-  },
-  {
     "type": "comment",
     "named": true
   },
@@ -424,10 +447,6 @@
   },
   {
     "type": "metavar",
-    "named": false
-  },
-  {
-    "type": "namespace_prefix",
     "named": false
   },
   {

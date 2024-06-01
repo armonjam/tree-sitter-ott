@@ -16,8 +16,8 @@ type, t :: 'ty'_ ::=
     (id_desc
       (id)
       (homomorphism
-        (hom_name)
-        (hom_body)))
+        name: (hom_name)
+        body: (hom_body)))
     (id_desc
       (id))
     (id_desc
@@ -65,8 +65,8 @@ typing :: 'ty_' ::=
     (id_desc
       (id)
       (homomorphism
-        (hom_name)
-        (hom_body)))
+        name: (hom_name)
+        body: (hom_body)))
     (id_desc
       (id))
     (id_desc
@@ -92,4 +92,6 @@ typing :: 'ty_' ::=
         (comprehension_bound
           (id)))
         (string)))
-  (defnclass))
+  (defnclass
+    class_name: (string)
+    namespace_prefix: (string)))
