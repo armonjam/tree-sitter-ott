@@ -154,7 +154,7 @@ module.exports = grammar({
       '...',
       '....',
     ),
-    id: _ => /[a-zA-Z\d]+/,
+    id: _ => /[a-zA-Z\d_]+/,
     string: _ => /\S+/,
   }
 });
