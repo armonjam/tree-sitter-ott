@@ -45,18 +45,22 @@ module.exports = grammar({
     ),
 
     defn_rule: $ => seq(
-      repeat($.rule_line),
-      $.rule_separator,
+      field('premise', repeat($.rule_line)),
+      field('separator', $.rule_separator),
       // TODO: requires a newline after the conclusion and so EOF is not supported
-      $.rule_line,
+      field('conclusion', $.rule_line),
     ),
 
     rule_separator: $ => seq(
+      field('line', $.dash_line),
+      '::',
+      field('rule_name', $.string),
+      '\n',
+    ),
+
+    dash_line: _ => seq(
       token(prec(2, '----')),
       token.immediate(repeat('-')),
-      '::',
-      alias($.string, 'rule_name'),
-      '\n',
     ),
 
     rule_line: _ => /\S.*\n/,

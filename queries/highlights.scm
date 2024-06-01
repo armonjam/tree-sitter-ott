@@ -18,6 +18,7 @@
   close: "}}" @punctuation.bracket)
 
 [
+ (dash_line)
   "|"
   "::"
   "::="

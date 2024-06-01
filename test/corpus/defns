@@ -121,8 +121,10 @@ by
       (id)
       (string)
       (defn_rule
-        (rule_separator)
-        (rule_line)))))
+        separator: (rule_separator
+          line: (dash_line)
+          rule_name: (string))
+        conclusion: (rule_line)))))
 
 =====================================================
 multiple newlines after last rule
@@ -146,8 +148,10 @@ by
       (id)
       (string)
       (defn_rule
-        (rule_separator)
-        (rule_line)))))
+        separator: (rule_separator
+          line: (dash_line)
+          rule_name: (string))
+        conclusion: (rule_line)))))
 
 =====================================================
 inline conclusion
@@ -203,9 +207,11 @@ gg |- z3
       (id)
       (string)
       (defn_rule
-        (rule_line)
-        (rule_separator)
-        (rule_line)))))
+        premise: (rule_line)
+        separator: (rule_separator
+          line: (dash_line)
+          rule_name: (string))
+        conclusion: (rule_line)))))
 
 =========================================================
 single defn block with one rule with multiple predicates
@@ -232,11 +238,13 @@ gg |- z3
       (id)
       (string)
       (defn_rule
-        (rule_line)
-        (rule_line)
-        (rule_line)
-        (rule_separator)
-        (rule_line)))))
+        premise: (rule_line)
+        premise: (rule_line)
+        premise: (rule_line)
+        separator: (rule_separator
+          line: (dash_line)
+          rule_name: (string))
+        conclusion: (rule_line)))))
 
 =====================================================
 multiple rules in a single defn block
@@ -265,12 +273,16 @@ by
       (id)
       (string)
       (defn_rule
-        (rule_separator)
-        (rule_line))
+        separator: (rule_separator
+          line: (dash_line)
+          rule_name: (string))
+        conclusion: (rule_line))
       (defn_rule
-        (rule_line)
-        (rule_separator)
-        (rule_line)))))
+        premise: (rule_line)
+        separator: (rule_separator
+          line: (dash_line)
+          rule_name: (string))
+        conclusion: (rule_line)))))
 
 =====================================================
 multiple defn blocks in a single defnclass
@@ -303,8 +315,10 @@ by
       (id)
       (string)
       (defn_rule
-        (rule_separator)
-        (rule_line)))
+        separator: (rule_separator
+          line: (dash_line)
+          rule_name: (string))
+        conclusion: (rule_line)))
     (defn
       (element)
       (element)
@@ -312,9 +326,11 @@ by
       (id)
       (string)
       (defn_rule
-        (rule_line)
-        (rule_separator)
-        (rule_line)))))
+        premise: (rule_line)
+        separator: (rule_separator
+          line: (dash_line)
+          rule_name: (string))
+        conclusion: (rule_line)))))
 
 =====================================================
 multiple defnclasses
@@ -348,8 +364,10 @@ by
       (id)
       (string)
       (defn_rule
-        (rule_separator)
-        (rule_line))))
+        separator: (rule_separator
+          line: (dash_line)
+          rule_name: (string))
+        conclusion: (rule_line))))
   (defnclass
     (defn
       (element)
@@ -360,5 +378,7 @@ by
       (id)
       (string)
       (defn_rule
-        (rule_separator)
-        (rule_line)))))
+        separator: (rule_separator
+          line: (dash_line)
+          rule_name: (string))
+        conclusion: (rule_line)))))

@@ -93,12 +93,14 @@ gg |- z3
       (id)
       (string)
       (defn_rule
-        (rule_line)
-        (rule_line)
+        premise: (rule_line)
+        premise: (rule_line)
         (comment)
-        (rule_line)
-        (rule_separator)
-        (rule_line)))))
+        premise: (rule_line)
+        separator: (rule_separator
+          line: (dash_line)
+          rule_name: (string))
+        conclusion: (rule_line)))))
 
 ==================================
 Comment after 'by' token
@@ -123,5 +125,7 @@ by % Add more rules later
       (string)
       (comment)
       (defn_rule
-        (rule_separator)
-        (rule_line)))))
+        separator: (rule_separator
+          line: (dash_line)
+          rule_name: (string))
+        conclusion: (rule_line)))))
