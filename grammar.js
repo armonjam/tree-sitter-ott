@@ -79,7 +79,7 @@ module.exports = grammar({
       '|',
       repeat($.element),
       '::',
-      repeat($.id),
+      repeat($.id),  // TODO: instead of id, use a choice
       '::',
       $.string,
       // TODO: bindspecs,
