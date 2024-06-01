@@ -15,7 +15,9 @@ type, t :: 'ty'_ ::=
   (metavardefn
     (id_desc
       (id)
-      (homomorphism))
+      (homomorphism
+        (hom_name)
+        (hom_body)))
     (id_desc
       (id))
     (id_desc

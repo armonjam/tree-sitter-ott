@@ -78,7 +78,9 @@ by
       (element)
       (element)
       (string)
-      (homomorphism))))
+      (homomorphism
+        (hom_name)
+        (hom_body)))))
 
 
 =====================================================

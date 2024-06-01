@@ -122,11 +122,21 @@ module.exports = grammar({
     // % homomorphism
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+    // TODO: replace with external parser
     homomorphism: $ => seq(
-      '{{',
-      alias($.string, 'hom_name'),
-      repeat(alias($.string, 'hom_string')),
-      token(prec(1, '}}')),
+      field('open', '{{'),
+      field('name', $.hom_name),
+      field('body', $.hom_body),
+      field('close', token(prec(1, '}}'))),
+    ),
+
+    hom_name: _ => choice(
+      'tex',
+      // TODO: add more hom names
+    ),
+
+    hom_body: $ => repeat1(
+      alias($.string, 'hom_string')
     ),
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

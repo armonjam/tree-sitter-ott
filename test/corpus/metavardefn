@@ -72,7 +72,9 @@ metavar a {{ tex \ell }}, b ::=
   (metavardefn
     (id_desc
       (id)
-      (homomorphism))
+      (homomorphism
+        (hom_name)
+        (hom_body)))
     (id_desc
       (id))))
 
@@ -87,7 +89,9 @@ metavar a {{tex \ell}}, b ::=
   (metavardefn
     (id_desc
       (id)
-      (homomorphism))
+      (homomorphism
+        (hom_name)
+        (hom_body)))
     (id_desc
       (id))))
 
@@ -101,7 +105,9 @@ metavar a {{ tex [[gg]] }}, b ::=
   (metavardefn
     (id_desc
       (id)
-      (homomorphism))
+      (homomorphism
+        (hom_name)
+        (hom_body)))
     (id_desc
       (id))))
 
@@ -114,10 +120,14 @@ metavar a {{ tex [[gg]] }}, b {{ tex \normalcolor }}::=
   (metavardefn
     (id_desc
       (id)
-      (homomorphism))
+      (homomorphism
+        (hom_name)
+        (hom_body)))
     (id_desc
       (id)
-      (homomorphism))))
+      (homomorphism
+        (hom_name)
+        (hom_body)))))
 
 
 ============================
@@ -130,7 +140,9 @@ metavar a {{ tex [[gg |- f]] }}, b ::=
   (metavardefn
     (id_desc
       (id)
-      (homomorphism))
+      (homomorphism
+        (hom_name)
+        (hom_body)))
     (id_desc
       (id))))
 

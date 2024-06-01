@@ -215,14 +215,18 @@ term, M :: 'term_' ::=
     (production
       (element)
       (string)
-      (homomorphism))
+      (homomorphism
+        (hom_name)
+        (hom_body)))
     (production
       (element)
       (element)
       (element)
       (element)
       (string)
-      (homomorphism))))
+      (homomorphism
+        (hom_name)
+        (hom_body)))))
 
 ===================
 multiple grammar blocks
