@@ -74,7 +74,7 @@ defns
 typing :: 'ty_' ::=
 
 defn
-|- psi ::  :: 'psi_wf_'
+|- psi ::  :: psi_wf :: 'psi_wf_'
 by
 
 gg |- z1
@@ -90,6 +90,7 @@ gg |- z3
     (defn
       (element)
       (element)
+      (id)
       (string)
       (defn_rule
         (rule_line)
@@ -106,7 +107,7 @@ defns
 typing :: 'ty_' ::=
 
 defn
-|- psi ::  :: 'psi_wf_'
+|- psi ::  :: psi_wf :: 'psi_wf_'
 by % Add more rules later
 
 ---------------- :: Combo
@@ -118,6 +119,7 @@ by % Add more rules later
     (defn
       (element)
       (element)
+      (id)
       (string)
       (comment)
       (defn_rule

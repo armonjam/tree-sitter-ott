@@ -30,12 +30,14 @@ module.exports = grammar({
     ),
 
     defn: $ => seq(
-      'defn',
+      token(prec(10, 'defn')),
       repeat($.element),
       '::',
       repeat($.id),
       '::',
-      $.string,
+      $.id,   // TODO: replace id
+      '::',
+      $.string, // TODO: replace quoted string?
       repeat($.homomorphism),
       'by',
       '\n',

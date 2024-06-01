@@ -22,7 +22,7 @@ defns
 typing :: 'ty_' ::=
 
 defn
-GG |- x : t ~> X :: :: 'typing_'
+GG |- x : t ~> X :: :: test :: 'typing_'
 by
 
 ---
@@ -36,6 +36,7 @@ by
       (element)
       (element)
       (element)
+      (id)
       (string))))
 
 ==================================
@@ -46,7 +47,7 @@ defns
 typing :: 'ty_' ::=
 
 defn
-GG |- x : t ~> X :: :: 'typing_'
+GG |- x : t ~> X :: :: test :: 'typing_'
 by
 ---
 (source_file
@@ -59,6 +60,7 @@ by
       (element)
       (element)
       (element)
+      (id)
       (string))))
 
 =====================================================
@@ -68,7 +70,7 @@ defns
 typing :: 'ty_' ::=
 
 defn
-|- psi ::  :: 'psi_wf_' {{ tex [[|-]] \color{blue} [[psi]] \normalcolor }}
+|- psi ::  :: psi_wf :: 'psi_wf_' {{ tex [[|-]] \color{blue} [[psi]] \normalcolor }}
 by
 
 ---
@@ -77,6 +79,7 @@ by
     (defn
       (element)
       (element)
+      (id)
       (string)
       (homomorphism
         (hom_name)
@@ -90,7 +93,7 @@ defns
 typing :: 'ty_' ::=
 
 defn
-|- psi ::  :: 'psi_wf_'
+|- psi ::  :: psi_wf :: 'psi_wf_'
 by
 
 ---------------- :: Combo
@@ -102,6 +105,32 @@ by
     (defn
       (element)
       (element)
+      (id)
+      (string)
+      (defn_rule
+        (rule_separator)
+        (rule_line)))))
+
+=====================================================
+multiple newlines after last rule
+=====================================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: psi_wf :: 'psi_wf_'
+by
+
+---------------- :: Combo
+|- z1 o z2 ~ z3
+
+---
+(source_file
+  (defnclass
+    (defn
+      (element)
+      (element)
+      (id)
       (string)
       (defn_rule
         (rule_separator)
@@ -115,7 +144,7 @@ defns
 typing :: 'ty_' ::=
 
 defn
-|- psi ::  :: 'psi_wf_'
+|- psi ::  :: psi_wf :: 'psi_wf_'
 by
 
 ---------------- :: Combo |- z1 o z2 ~ z3
@@ -130,7 +159,7 @@ defns
 typing :: 'ty_' ::=
 
 defn
-|- psi ::  :: 'psi_wf_'
+|- psi ::  :: psi_wf :: 'psi_wf_'
 by
 
 ---------------- :: Combo
@@ -145,7 +174,7 @@ defns
 typing :: 'ty_' ::=
 
 defn
-|- psi ::  :: 'psi_wf_'
+|- psi ::  :: psi_wf :: 'psi_wf_'
 by
 
 gg |- z3
@@ -158,6 +187,7 @@ gg |- z3
     (defn
       (element)
       (element)
+      (id)
       (string)
       (defn_rule
         (rule_line)
@@ -171,7 +201,7 @@ defns
 typing :: 'ty_' ::=
 
 defn
-|- psi ::  :: 'psi_wf_'
+|- psi ::  :: psi_wf :: 'psi_wf_'
 by
 
 gg |- z1
@@ -186,6 +216,7 @@ gg |- z3
     (defn
       (element)
       (element)
+      (id)
       (string)
       (defn_rule
         (rule_line)
@@ -201,7 +232,7 @@ defns
 typing :: 'ty_' ::=
 
 defn
-|- psi ::  :: 'psi_wf_'
+|- psi ::  :: psi_wf :: 'psi_wf_'
 by
 
 ---------------- :: Combo
@@ -218,6 +249,7 @@ by
     (defn
       (element)
       (element)
+      (id)
       (string)
       (defn_rule
         (rule_separator)
@@ -234,7 +266,7 @@ defns
 typing :: 'ty_' ::=
 
 defn
-|- psi ::  :: 'psi_wf_'
+|- psi ::  :: psi_wf :: 'psi_wf_'
 by
 
 ---------------- :: Combo
@@ -244,7 +276,7 @@ defns
 kinding :: 'k' ::=
 
 defn
-gg |- t : k :: :: 'kind_'
+gg |- t : k :: :: kind :: 'kind_'
 by
 
 ------------------ :: BoolTrue
@@ -256,6 +288,7 @@ by
     (defn
       (element)
       (element)
+      (id)
       (string)
       (defn_rule
         (rule_separator)
@@ -267,6 +300,7 @@ by
       (element)
       (element)
       (element)
+      (id)
       (string)
       (defn_rule
         (rule_separator)
