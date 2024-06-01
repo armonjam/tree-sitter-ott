@@ -39,6 +39,12 @@
   "tree-sitter": [
     {
       "scope": "source.ott",
+      "file-types": [
+        "ott"
+      ],
+      "highlights": [
+        "queries/highlights.scm"
+      ],
       "injection-regex": "^ott$"
     }
   ]
