@@ -59,7 +59,7 @@ module.exports = grammar({
       '\n',
     ),
 
-    rule_line: _ => /.*\n/,
+    rule_line: _ => /\S.*\n/,
 
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
