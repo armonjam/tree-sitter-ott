@@ -40,6 +40,19 @@ by
       (string))))
 
 ==================================
+missing rule name
+:error
+==================================
+defns
+typing :: 'ty_' ::=
+
+defn
+GG |- x : t ~> X :: :: 'typing_'
+by
+
+---
+
+==================================
 single defn block with no rules and no newline
 :skip
 ==================================
@@ -254,6 +267,50 @@ by
       (defn_rule
         (rule_separator)
         (rule_line))
+      (defn_rule
+        (rule_line)
+        (rule_separator)
+        (rule_line)))))
+
+=====================================================
+multiple defn blocks in a single defnclass
+=====================================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: psi_wf :: 'psi_wf_'
+by
+
+---------------- :: Combo
+|- z1 o z2 ~ z3
+
+
+defn
+psi mem gg ::  :: var_sub :: 'var_sub_'
+by
+
+|- psi
+---------------- :: Sub
+|- psi mem gg
+
+---
+(source_file
+  (defnclass
+    (defn
+      (element)
+      (element)
+      (id)
+      (string)
+      (defn_rule
+        (rule_separator)
+        (rule_line)))
+    (defn
+      (element)
+      (element)
+      (element)
+      (id)
+      (string)
       (defn_rule
         (rule_line)
         (rule_separator)
