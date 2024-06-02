@@ -84,13 +84,13 @@ module.exports = grammar({
 
     production: $ => seq(
       '|',
-      repeat($.element),
+      field('element', repeat($.element)),
       '::',
-      repeat($.id),  // TODO: instead of id, use a choice
+      field('modifier', repeat($.id)),  // TODO: instead of id, use a choice
       '::',
-      $.string,
+      field('production_name', $.string),
       // TODO: bindspecs,
-      repeat($.homomorphism),
+      field('homomorphism', repeat($.homomorphism)),
     ),
 
     element: $ => choice(
