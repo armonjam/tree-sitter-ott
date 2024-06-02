@@ -322,6 +322,11 @@
     }
   },
   {
+    "type": "rule_line",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "rule_separator",
     "named": true,
     "fields": {
@@ -469,10 +474,6 @@
   {
     "type": "q_id",
     "named": false
-  },
-  {
-    "type": "rule_line",
-    "named": true
   },
   {
     "type": "string",

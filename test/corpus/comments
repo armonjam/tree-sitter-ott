@@ -96,8 +96,7 @@ gg |- z3
       (namespace_prefix)
       (defn_rule
         premise: (rule_line)
-        premise: (rule_line)
-        (comment)
+        premise: (rule_line (comment))
         premise: (rule_line)
         separator: (rule_separator
           line: (dash_line)

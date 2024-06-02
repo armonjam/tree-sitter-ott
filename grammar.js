@@ -63,7 +63,10 @@ module.exports = grammar({
       token.immediate(repeat('-')),
     ),
 
-    rule_line: _ => /\S.*\n/,
+    rule_line: $ => seq(
+      repeat1(alias($.element, 'element')),
+      '\n'
+    ),
 
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

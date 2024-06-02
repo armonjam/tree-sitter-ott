@@ -264,8 +264,25 @@
       ]
     },
     "rule_line": {
-      "type": "PATTERN",
-      "value": "\\S.*\\n"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "element"
+            },
+            "named": false,
+            "value": "element"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
     },
     "grammar_rule": {
       "type": "SEQ",
