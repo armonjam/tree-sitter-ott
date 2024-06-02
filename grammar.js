@@ -161,11 +161,12 @@ module.exports = grammar({
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     // % other
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    comment: _ => token(prec(100, seq(
-      '%',
-      // TODO: is prec necessary?
-      token.immediate(prec(101, /.*/)),
-    ))),
+    // comment: _ => token(prec(100, seq(
+    //   '%',
+    //   // TODO: is prec necessary?
+    //   token.immediate(prec(101, /.*/)),
+    // ))),
+    comment: _ => /%.*/,
     dots: _ => choice(
       '..',
       '...',
