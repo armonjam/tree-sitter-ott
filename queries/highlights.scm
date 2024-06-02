@@ -22,8 +22,8 @@
   rule_name: (string) @property)
 
 (production
+  modifier: (id)* @type
   production_name: (string) @property)
-
 
 (comment) @comment
 (namespace_prefix) @string

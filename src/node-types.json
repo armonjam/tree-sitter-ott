@@ -168,7 +168,7 @@
   },
   {
     "type": "element",
-    "named": true,
+    "named": false,
     "fields": {},
     "children": {
       "multiple": true,

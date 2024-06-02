@@ -87,7 +87,7 @@ module.exports = grammar({
       '|',
       field('element', repeat($.element)),
       '::',
-      field('modifier', repeat($.id)),  // TODO: instead of id, use a choice
+      field('modifier', repeat($.id)),
       '::',
       field('production_name', $.string),
       // TODO: bindspecs,
