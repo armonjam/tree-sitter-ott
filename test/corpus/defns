@@ -7,7 +7,7 @@ typing :: 'ty_' ::=
 (source_file
   (defnclass
     class_name: (string)
-    namespace_prefix: (string)))
+    namespace_prefix: (namespace_prefix)))
 
 ========================
 missing defnclass name
@@ -31,7 +31,7 @@ by
 (source_file
   (defnclass
     class_name: (string)
-    namespace_prefix: (string)
+    namespace_prefix: (namespace_prefix)
     definition: (defn
       (element)
       (element)
@@ -41,7 +41,7 @@ by
       (element)
       (element)
       (id)
-      (string))))
+      (namespace_prefix))))
 
 ==================================
 missing rule name
@@ -70,7 +70,7 @@ by
 (source_file
   (defnclass
     class_name: (string)
-    namespace_prefix: (string)
+    namespace_prefix: (namespace_prefix)
     definition: (defn
       (element)
       (element)
@@ -80,7 +80,7 @@ by
       (element)
       (element)
       (id)
-      (string))))
+      (namespace_prefix))))
 
 =====================================================
 single defn block with no rules and homomorphism
@@ -96,12 +96,12 @@ by
 (source_file
   (defnclass
     class_name: (string)
-    namespace_prefix: (string)
+    namespace_prefix: (namespace_prefix)
     definition: (defn
       (element)
       (element)
       (id)
-      (string)
+      (namespace_prefix)
       (homomorphism
         name: (hom_name)
         body: (hom_body)))))
@@ -124,12 +124,12 @@ by
 (source_file
   (defnclass
     class_name: (string)
-    namespace_prefix: (string)
+    namespace_prefix: (namespace_prefix)
     definition: (defn
       (element)
       (element)
       (id)
-      (string)
+      (namespace_prefix)
       (defn_rule
         separator: (rule_separator
           line: (dash_line)
@@ -153,12 +153,12 @@ by
 (source_file
   (defnclass
     class_name: (string)
-    namespace_prefix: (string)
+    namespace_prefix: (namespace_prefix)
     definition: (defn
       (element)
       (element)
       (id)
-      (string)
+      (namespace_prefix)
       (defn_rule
         separator: (rule_separator
           line: (dash_line)
@@ -214,12 +214,12 @@ gg |- z3
 (source_file
   (defnclass
     class_name: (string)
-    namespace_prefix: (string)
+    namespace_prefix: (namespace_prefix)
     definition: (defn
       (element)
       (element)
       (id)
-      (string)
+      (namespace_prefix)
       (defn_rule
         premise: (rule_line)
         separator: (rule_separator
@@ -247,12 +247,12 @@ gg |- z3
 (source_file
   (defnclass
     class_name: (string)
-    namespace_prefix: (string)
+    namespace_prefix: (namespace_prefix)
     definition: (defn
       (element)
       (element)
       (id)
-      (string)
+      (namespace_prefix)
       (defn_rule
         premise: (rule_line)
         premise: (rule_line)
@@ -284,12 +284,12 @@ by
 (source_file
   (defnclass
     class_name: (string)
-    namespace_prefix: (string)
+    namespace_prefix: (namespace_prefix)
     definition: (defn
       (element)
       (element)
       (id)
-      (string)
+      (namespace_prefix)
       (defn_rule
         separator: (rule_separator
           line: (dash_line)
@@ -328,12 +328,12 @@ by
 (source_file
   (defnclass
     class_name: (string)
-    namespace_prefix: (string)
+    namespace_prefix: (namespace_prefix)
     definition: (defn
       (element)
       (element)
       (id)
-      (string)
+      (namespace_prefix)
       (defn_rule
         separator: (rule_separator
           line: (dash_line)
@@ -344,7 +344,7 @@ by
       (element)
       (element)
       (id)
-      (string)
+      (namespace_prefix)
       (defn_rule
         premise: (rule_line)
         separator: (rule_separator
@@ -379,12 +379,12 @@ by
 (source_file
   (defnclass
     class_name: (string)
-    namespace_prefix: (string)
+    namespace_prefix: (namespace_prefix)
     definition: (defn
       (element)
       (element)
       (id)
-      (string)
+      (namespace_prefix)
       (defn_rule
         separator: (rule_separator
           line: (dash_line)
@@ -392,7 +392,7 @@ by
         conclusion: (rule_line))))
   (defnclass
     class_name: (string)
-    namespace_prefix: (string)
+    namespace_prefix: (namespace_prefix)
     definition: (defn
       (element)
       (element)
@@ -400,7 +400,7 @@ by
       (element)
       (element)
       (id)
-      (string)
+      (namespace_prefix)
       (defn_rule
         separator: (rule_separator
           line: (dash_line)

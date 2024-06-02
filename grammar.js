@@ -23,8 +23,7 @@ module.exports = grammar({
     defnclass: $ => seq(
       field('class_name', $.string),
       '::',
-      // TODO: use special "namespace" string
-      field('namespace_prefix', $.string),
+      field('namespace_prefix', $.namespace_prefix),
       '::=',
       field('homomorphism', repeat($.homomorphism)),
       field('definition', repeat($.defn)),
@@ -38,7 +37,7 @@ module.exports = grammar({
       '::',
       $.id,   // TODO: replace id
       '::',
-      $.string, // TODO: replace quoted string?
+      $.namespace_prefix,
       repeat($.homomorphism),
       'by',
       '\n',
@@ -74,7 +73,7 @@ module.exports = grammar({
     grammar_rule: $ => seq(
       $._id_desc_list1,
       '::',
-      $.string,
+      $.namespace_prefix,
       '::=',
       repeat($.homomorphism),
       repeat($.production),
@@ -158,6 +157,11 @@ module.exports = grammar({
       '..',
       '...',
       '....',
+    ),
+    label: $ => alias($.id, 'label'),
+    namespace_prefix: $ => choice(
+      alias($.id, 'id'),
+      seq("\'", optional(alias($.id, 'q_id')), "\'"),
     ),
     id: _ => /[a-zA-Z\d_]+/,
     string: _ => /\S+/,

@@ -73,7 +73,7 @@
           "name": "namespace_prefix",
           "content": {
             "type": "SYMBOL",
-            "name": "string"
+            "name": "namespace_prefix"
           }
         },
         {
@@ -150,7 +150,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "string"
+          "name": "namespace_prefix"
         },
         {
           "type": "REPEAT",
@@ -280,7 +280,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "string"
+          "name": "namespace_prefix"
         },
         {
           "type": "STRING",
@@ -657,6 +657,59 @@
         {
           "type": "STRING",
           "value": "...."
+        }
+      ]
+    },
+    "label": {
+      "type": "ALIAS",
+      "content": {
+        "type": "SYMBOL",
+        "name": "id"
+      },
+      "named": false,
+      "value": "label"
+    },
+    "namespace_prefix": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "id"
+          },
+          "named": false,
+          "value": "id"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "'"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "id"
+                  },
+                  "named": false,
+                  "value": "q_id"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "STRING",
+              "value": "'"
+            }
+          ]
         }
       ]
     },

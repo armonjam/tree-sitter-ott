@@ -11,6 +11,7 @@
 ] @keyword
 
 (comment) @comment
+(namespace_prefix) @string
 
 (homomorphism
   open: "{{" @punctuation.bracket

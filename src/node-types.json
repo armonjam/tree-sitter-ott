@@ -48,7 +48,7 @@
           "named": true
         },
         {
-          "type": "string",
+          "type": "namespace_prefix",
           "named": true
         }
       ]
@@ -129,7 +129,7 @@
         "required": true,
         "types": [
           {
-            "type": "string",
+            "type": "namespace_prefix",
             "named": true
           }
         ]
@@ -185,11 +185,11 @@
           "named": true
         },
         {
-          "type": "production",
+          "type": "namespace_prefix",
           "named": true
         },
         {
-          "type": "string",
+          "type": "production",
           "named": true
         }
       ]
@@ -290,6 +290,11 @@
     }
   },
   {
+    "type": "namespace_prefix",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "production",
     "named": true,
     "fields": {},
@@ -370,6 +375,10 @@
     "named": false
   },
   {
+    "type": "'",
+    "named": false
+  },
+  {
     "type": ",",
     "named": false
   },
@@ -442,11 +451,23 @@
     "named": true
   },
   {
+    "type": "id",
+    "named": false
+  },
+  {
     "type": "indexvar",
     "named": false
   },
   {
+    "type": "label",
+    "named": false
+  },
+  {
     "type": "metavar",
+    "named": false
+  },
+  {
+    "type": "q_id",
     "named": false
   },
   {

@@ -7,7 +7,7 @@ indexvar i, j ::=
 
 grammar
 
-type, t :: 'ty'_ ::=
+type, t :: 'ty_' ::=
   | a                   ::  :: var
   | </ ti // -> // i /> ::  :: arrow
 ---
@@ -32,7 +32,7 @@ type, t :: 'ty'_ ::=
       (id))
     (id_desc
       (id))
-    (string)
+    (namespace_prefix)
     (production
       (element)
       (string))
@@ -81,7 +81,7 @@ typing :: 'ty_' ::=
       (id))
     (id_desc
       (id))
-    (string)
+    (namespace_prefix)
     (production
       (element)
       (string))
@@ -94,4 +94,4 @@ typing :: 'ty_' ::=
         (string)))
   (defnclass
     class_name: (string)
-    namespace_prefix: (string)))
+    namespace_prefix: (namespace_prefix)))
