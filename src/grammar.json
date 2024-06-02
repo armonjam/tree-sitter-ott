@@ -146,10 +146,14 @@
           }
         },
         {
-          "type": "REPEAT",
+          "type": "FIELD",
+          "name": "element",
           "content": {
-            "type": "SYMBOL",
-            "name": "element"
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "element"
+            }
           }
         },
         {
@@ -157,10 +161,15 @@
           "value": "::"
         },
         {
-          "type": "REPEAT",
+          "type": "STRING",
+          "value": "::"
+        },
+        {
+          "type": "FIELD",
+          "name": "definition_name",
           "content": {
             "type": "SYMBOL",
-            "name": "id"
+            "name": "string"
           }
         },
         {
@@ -168,22 +177,22 @@
           "value": "::"
         },
         {
-          "type": "SYMBOL",
-          "name": "id"
-        },
-        {
-          "type": "STRING",
-          "value": "::"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "namespace_prefix"
-        },
-        {
-          "type": "REPEAT",
+          "type": "FIELD",
+          "name": "namespace_prefix",
           "content": {
             "type": "SYMBOL",
-            "name": "homomorphism"
+            "name": "namespace_prefix"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "homomorphism",
+          "content": {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "homomorphism"
+            }
           }
         },
         {
@@ -195,10 +204,14 @@
           "value": "\n"
         },
         {
-          "type": "REPEAT",
+          "type": "FIELD",
+          "name": "definition_rule",
           "content": {
-            "type": "SYMBOL",
-            "name": "defn_rule"
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "defn_rule"
+            }
           }
         }
       ]

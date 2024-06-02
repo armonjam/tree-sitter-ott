@@ -32,17 +32,17 @@ module.exports = grammar({
 
     defn: $ => seq(
       token(prec(10, 'defn')),
-      repeat($.element),
+      field('element', repeat($.element)),
       '::',
-      repeat($.id),
+      // TODO: Use ids in between here like the spec
       '::',
-      $.id,   // TODO: replace id
+      field('definition_name', $.string),
       '::',
-      $.namespace_prefix,
-      repeat($.homomorphism),
+      field('namespace_prefix', $.namespace_prefix),
+      field('homomorphism', repeat($.homomorphism)),
       'by',
       '\n',
-      repeat($.defn_rule),
+      field('definition_rule', repeat($.defn_rule)),
     ),
 
     defn_rule: $ => seq(

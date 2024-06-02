@@ -16,7 +16,7 @@
 (defnclass
   class_name: (string) @function)
 (defn
-  (id) @function.method)
+  definition_name: (string) @function.method)
 
 (rule_separator
   rule_name: (string) @property)

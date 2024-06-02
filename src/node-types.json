@@ -26,32 +26,57 @@
   {
     "type": "defn",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "defn_rule",
-          "named": true
-        },
-        {
-          "type": "element",
-          "named": true
-        },
-        {
-          "type": "homomorphism",
-          "named": true
-        },
-        {
-          "type": "id",
-          "named": true
-        },
-        {
-          "type": "namespace_prefix",
-          "named": true
-        }
-      ]
+    "fields": {
+      "definition_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "definition_rule": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "defn_rule",
+            "named": true
+          }
+        ]
+      },
+      "element": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "element",
+            "named": true
+          }
+        ]
+      },
+      "homomorphism": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "homomorphism",
+            "named": true
+          }
+        ]
+      },
+      "namespace_prefix": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "namespace_prefix",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -143,7 +168,7 @@
   },
   {
     "type": "element",
-    "named": false,
+    "named": true,
     "fields": {},
     "children": {
       "multiple": true,

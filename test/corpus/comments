@@ -90,11 +90,11 @@ gg |- z3
     class_name: (string)
     namespace_prefix: (namespace_prefix)
     definition: (defn
-      (element)
-      (element)
-      (id)
-      (namespace_prefix)
-      (defn_rule
+      element: (element)
+      element: (element)
+      definition_name: (string)
+      namespace_prefix: (namespace_prefix)
+      definition_rule: (defn_rule
         premise: (rule_line)
         premise: (rule_line)
         (comment)
@@ -123,12 +123,12 @@ by % Add more rules later
     class_name: (string)
     namespace_prefix: (namespace_prefix)
     definition: (defn
-      (element)
-      (element)
-      (id)
-      (namespace_prefix)
+      element: (element)
+      element: (element)
+      definition_name: (string)
+      namespace_prefix: (namespace_prefix)
       (comment)
-      (defn_rule
+      definition_rule: (defn_rule
         separator: (rule_separator
           line: (dash_line)
           rule_name: (string))

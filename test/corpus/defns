@@ -33,15 +33,15 @@ by
     class_name: (string)
     namespace_prefix: (namespace_prefix)
     definition: (defn
-      (element)
-      (element)
-      (element)
-      (element)
-      (element)
-      (element)
-      (element)
-      (id)
-      (namespace_prefix))))
+      element: (element)
+      element: (element)
+      element: (element)
+      element: (element)
+      element: (element)
+      element: (element)
+      element: (element)
+      definition_name: (string)
+      namespace_prefix: (namespace_prefix))))
 
 ==================================
 missing rule name
@@ -72,15 +72,15 @@ by
     class_name: (string)
     namespace_prefix: (namespace_prefix)
     definition: (defn
-      (element)
-      (element)
-      (element)
-      (element)
-      (element)
-      (element)
-      (element)
-      (id)
-      (namespace_prefix))))
+      element: (element)
+      element: (element)
+      element: (element)
+      element: (element)
+      element: (element)
+      element: (element)
+      element: (element)
+      definition_name: (string)
+      namespace_prefix: (namespace_prefix))))
 
 =====================================================
 single defn block with no rules and homomorphism
@@ -98,11 +98,11 @@ by
     class_name: (string)
     namespace_prefix: (namespace_prefix)
     definition: (defn
-      (element)
-      (element)
-      (id)
-      (namespace_prefix)
-      (homomorphism
+      element: (element)
+      element: (element)
+      definition_name: (string)
+      namespace_prefix: (namespace_prefix)
+      homomorphism: (homomorphism
         name: (hom_name)
         body: (hom_body)))))
 
@@ -126,11 +126,11 @@ by
     class_name: (string)
     namespace_prefix: (namespace_prefix)
     definition: (defn
-      (element)
-      (element)
-      (id)
-      (namespace_prefix)
-      (defn_rule
+      element: (element)
+      element: (element)
+      definition_name: (string)
+      namespace_prefix: (namespace_prefix)
+      definition_rule: (defn_rule
         separator: (rule_separator
           line: (dash_line)
           rule_name: (string))
@@ -155,11 +155,11 @@ by
     class_name: (string)
     namespace_prefix: (namespace_prefix)
     definition: (defn
-      (element)
-      (element)
-      (id)
-      (namespace_prefix)
-      (defn_rule
+      element: (element)
+      element: (element)
+      definition_name: (string)
+      namespace_prefix: (namespace_prefix)
+      definition_rule: (defn_rule
         separator: (rule_separator
           line: (dash_line)
           rule_name: (string))
@@ -216,11 +216,11 @@ gg |- z3
     class_name: (string)
     namespace_prefix: (namespace_prefix)
     definition: (defn
-      (element)
-      (element)
-      (id)
-      (namespace_prefix)
-      (defn_rule
+      element: (element)
+      element: (element)
+      definition_name: (string)
+      namespace_prefix: (namespace_prefix)
+      definition_rule: (defn_rule
         premise: (rule_line)
         separator: (rule_separator
           line: (dash_line)
@@ -249,11 +249,11 @@ gg |- z3
     class_name: (string)
     namespace_prefix: (namespace_prefix)
     definition: (defn
-      (element)
-      (element)
-      (id)
-      (namespace_prefix)
-      (defn_rule
+      element: (element)
+      element: (element)
+      definition_name: (string)
+      namespace_prefix: (namespace_prefix)
+      definition_rule: (defn_rule
         premise: (rule_line)
         premise: (rule_line)
         premise: (rule_line)
@@ -286,16 +286,16 @@ by
     class_name: (string)
     namespace_prefix: (namespace_prefix)
     definition: (defn
-      (element)
-      (element)
-      (id)
-      (namespace_prefix)
-      (defn_rule
+      element: (element)
+      element: (element)
+      definition_name: (string)
+      namespace_prefix: (namespace_prefix)
+      definition_rule: (defn_rule
         separator: (rule_separator
           line: (dash_line)
           rule_name: (string))
         conclusion: (rule_line))
-      (defn_rule
+      definition_rule: (defn_rule
         premise: (rule_line)
         separator: (rule_separator
           line: (dash_line)
@@ -330,22 +330,22 @@ by
     class_name: (string)
     namespace_prefix: (namespace_prefix)
     definition: (defn
-      (element)
-      (element)
-      (id)
-      (namespace_prefix)
-      (defn_rule
+      element: (element)
+      element: (element)
+      definition_name: (string)
+      namespace_prefix: (namespace_prefix)
+      definition_rule: (defn_rule
         separator: (rule_separator
           line: (dash_line)
           rule_name: (string))
         conclusion: (rule_line)))
     definition: (defn
-      (element)
-      (element)
-      (element)
-      (id)
-      (namespace_prefix)
-      (defn_rule
+      element: (element)
+      element: (element)
+      element: (element)
+      definition_name: (string)
+      namespace_prefix: (namespace_prefix)
+      definition_rule: (defn_rule
         premise: (rule_line)
         separator: (rule_separator
           line: (dash_line)
@@ -381,11 +381,11 @@ by
     class_name: (string)
     namespace_prefix: (namespace_prefix)
     definition: (defn
-      (element)
-      (element)
-      (id)
-      (namespace_prefix)
-      (defn_rule
+      element: (element)
+      element: (element)
+      definition_name: (string)
+      namespace_prefix: (namespace_prefix)
+      definition_rule: (defn_rule
         separator: (rule_separator
           line: (dash_line)
           rule_name: (string))
@@ -394,14 +394,14 @@ by
     class_name: (string)
     namespace_prefix: (namespace_prefix)
     definition: (defn
-      (element)
-      (element)
-      (element)
-      (element)
-      (element)
-      (id)
-      (namespace_prefix)
-      (defn_rule
+      element: (element)
+      element: (element)
+      element: (element)
+      element: (element)
+      element: (element)
+      definition_name: (string)
+      namespace_prefix: (namespace_prefix)
+      definition_rule: (defn_rule
         separator: (rule_separator
           line: (dash_line)
           rule_name: (string))
