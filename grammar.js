@@ -11,7 +11,8 @@ module.exports = grammar({
 
     _item: $ => choice(
       $.metavardefn,
-      seq('grammar', repeat($.grammar_rule)),
+      seq(token(prec(10, 'grammar')), repeat($.grammar_rule)),
+      seq(token(prec(10, 'embed')), $.embed),
       seq(token(prec(10, 'defns')), $.defnclass),
       // TODO: ...
     ),
@@ -127,6 +128,14 @@ module.exports = grammar({
     comprehension_bound: $ =>
       seq($.id, optional(seq('IN', $.id, optional(seq($.dots, $.id)))),),
 
+
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    // % embed
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    // TODO: use specialized homomorphisms like in the specification
+    embed: $ => repeat1($.homomorphism),
+
+
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     // % homomorphism
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -141,6 +150,7 @@ module.exports = grammar({
 
     hom_name: _ => choice(
       'tex',
+      'tex-preamble',
       // TODO: add more hom names
     ),
 

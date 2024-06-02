@@ -143,7 +143,7 @@
   },
   {
     "type": "element",
-    "named": true,
+    "named": false,
     "fields": {},
     "children": {
       "multiple": true,
@@ -163,6 +163,21 @@
         },
         {
           "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "embed",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "homomorphism",
           "named": true
         }
       ]
@@ -297,28 +312,47 @@
   {
     "type": "production",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "element",
-          "named": true
-        },
-        {
-          "type": "homomorphism",
-          "named": true
-        },
-        {
-          "type": "id",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
+    "fields": {
+      "element": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "element",
+            "named": true
+          }
+        ]
+      },
+      "homomorphism": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "homomorphism",
+            "named": true
+          }
+        ]
+      },
+      "modifier": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "id",
+            "named": true
+          }
+        ]
+      },
+      "production_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -362,6 +396,10 @@
       "types": [
         {
           "type": "defnclass",
+          "named": true
+        },
+        {
+          "type": "embed",
           "named": true
         },
         {
@@ -444,6 +482,10 @@
     "named": false
   },
   {
+    "type": "embed",
+    "named": false
+  },
+  {
     "type": "grammar",
     "named": false
   },
@@ -485,6 +527,10 @@
   },
   {
     "type": "tex",
+    "named": false
+  },
+  {
+    "type": "tex-preamble",
     "named": false
   },
   {

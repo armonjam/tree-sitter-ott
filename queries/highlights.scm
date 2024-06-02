@@ -10,6 +10,7 @@
   "defns"
   "defn"
   "by"
+  "embed"
 ] @keyword
 
 (defnclass
@@ -21,7 +22,7 @@
   rule_name: (string) @property)
 
 (production
-  (string) @property)
+  production_name: (string) @property)
 
 
 (comment) @comment

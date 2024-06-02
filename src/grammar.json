@@ -19,8 +19,15 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "STRING",
-              "value": "grammar"
+              "type": "TOKEN",
+              "content": {
+                "type": "PREC",
+                "value": 10,
+                "content": {
+                  "type": "STRING",
+                  "value": "grammar"
+                }
+              }
             },
             {
               "type": "REPEAT",
@@ -28,6 +35,26 @@
                 "type": "SYMBOL",
                 "name": "grammar_rule"
               }
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "TOKEN",
+              "content": {
+                "type": "PREC",
+                "value": 10,
+                "content": {
+                  "type": "STRING",
+                  "value": "embed"
+                }
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "embed"
             }
           ]
         },
@@ -327,10 +354,14 @@
           "value": "|"
         },
         {
-          "type": "REPEAT",
+          "type": "FIELD",
+          "name": "element",
           "content": {
-            "type": "SYMBOL",
-            "name": "element"
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "element"
+            }
           }
         },
         {
@@ -338,10 +369,14 @@
           "value": "::"
         },
         {
-          "type": "REPEAT",
+          "type": "FIELD",
+          "name": "modifier",
           "content": {
-            "type": "SYMBOL",
-            "name": "id"
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "id"
+            }
           }
         },
         {
@@ -349,14 +384,22 @@
           "value": "::"
         },
         {
-          "type": "SYMBOL",
-          "name": "string"
-        },
-        {
-          "type": "REPEAT",
+          "type": "FIELD",
+          "name": "production_name",
           "content": {
             "type": "SYMBOL",
-            "name": "homomorphism"
+            "name": "string"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "homomorphism",
+          "content": {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "homomorphism"
+            }
           }
         }
       ]
@@ -568,6 +611,13 @@
         }
       ]
     },
+    "embed": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "homomorphism"
+      }
+    },
     "homomorphism": {
       "type": "SEQ",
       "members": [
@@ -618,6 +668,10 @@
         {
           "type": "STRING",
           "value": "tex"
+        },
+        {
+          "type": "STRING",
+          "value": "tex-preamble"
         }
       ]
     },
