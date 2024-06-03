@@ -729,17 +729,8 @@
       ]
     },
     "hom_name": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "tex"
-        },
-        {
-          "type": "STRING",
-          "value": "tex-preamble"
-        }
-      ]
+      "type": "PATTERN",
+      "value": "[a-zA-Z\\-]+"
     },
     "_hom_element": {
       "type": "CHOICE",

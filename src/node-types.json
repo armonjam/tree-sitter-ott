@@ -301,11 +301,6 @@
     }
   },
   {
-    "type": "hom_name",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "homomorphism",
     "named": true,
     "fields": {
@@ -610,16 +605,20 @@
     "named": false
   },
   {
+    "type": "hom_name",
+    "named": true
+  },
+  {
     "type": "hom_string",
     "named": false
   },
   {
     "type": "id",
-    "named": true
+    "named": false
   },
   {
     "type": "id",
-    "named": false
+    "named": true
   },
   {
     "type": "indexvar",
@@ -655,14 +654,6 @@
   },
   {
     "type": "symbol",
-    "named": false
-  },
-  {
-    "type": "tex",
-    "named": false
-  },
-  {
-    "type": "tex-preamble",
     "named": false
   },
   {

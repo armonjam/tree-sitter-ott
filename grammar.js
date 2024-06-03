@@ -162,11 +162,7 @@ module.exports = grammar({
       field('close', token(prec(1, '}}'))),
     ),
 
-    hom_name: _ => choice(
-      'tex',
-      'tex-preamble',
-      // TODO: add more hom names
-    ),
+    hom_name: _ => /[a-zA-Z\-]+/,
 
     _hom_element: $ => choice(
       field('hom_string', $._hom_string),
