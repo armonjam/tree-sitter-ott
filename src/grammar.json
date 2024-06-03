@@ -419,7 +419,7 @@
           "name": "production_name",
           "content": {
             "type": "SYMBOL",
-            "name": "string"
+            "name": "production_name"
           }
         },
         {
@@ -443,6 +443,15 @@
       },
       "named": false,
       "value": "production_modifier"
+    },
+    "production_name": {
+      "type": "ALIAS",
+      "content": {
+        "type": "SYMBOL",
+        "name": "id"
+      },
+      "named": false,
+      "value": "production_name"
     },
     "element": {
       "type": "CHOICE",

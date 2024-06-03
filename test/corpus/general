@@ -35,14 +35,14 @@ type, t :: 'ty_' ::=
     (namespace_prefix)
     (production
       element: (element)
-      production_name: (string))
+      production_name: (production_name))
     (production
       element: (element
         (element)
         (string)
         (comprehension_bound
           (id)))
-      production_name: (string))))
+      production_name: (production_name))))
 
 ===========================================
 grammar with metavars and empty defns block
@@ -84,14 +84,14 @@ typing :: 'ty_' ::=
     (namespace_prefix)
     (production
       element: (element)
-      production_name: (string))
+      production_name: (production_name))
     (production
       element: (element
         (element)
         (string)
         (comprehension_bound
           (id)))
-      production_name: (string)))
+      production_name: (production_name)))
   (defnclass
     class_name: (defnclass_name)
     namespace_prefix: (namespace_prefix)))

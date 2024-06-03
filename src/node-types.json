@@ -383,7 +383,7 @@
         "required": true,
         "types": [
           {
-            "type": "string",
+            "type": "production_name",
             "named": true
           }
         ]
@@ -392,6 +392,11 @@
   },
   {
     "type": "production_mod",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "production_name",
     "named": true,
     "fields": {}
   },
@@ -543,11 +548,11 @@
   },
   {
     "type": "id",
-    "named": false
+    "named": true
   },
   {
     "type": "id",
-    "named": true
+    "named": false
   },
   {
     "type": "indexvar",
@@ -563,6 +568,10 @@
   },
   {
     "type": "production_modifier",
+    "named": false
+  },
+  {
+    "type": "production_name",
     "named": false
   },
   {

@@ -18,13 +18,11 @@
 (namespace_prefix) @string
 (hom_name) @keyword
 (comment) @comment
+(production_name) @property
 (production_mod) @type
 
 (rule_separator
   rule_name: (string) @property)
-
-(production
-  production_name: (string) @property)
 
 [
  (dash_line)
