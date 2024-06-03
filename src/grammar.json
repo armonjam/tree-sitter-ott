@@ -88,7 +88,7 @@
           "name": "class_name",
           "content": {
             "type": "SYMBOL",
-            "name": "string"
+            "name": "defnclass_name"
           }
         },
         {
@@ -131,6 +131,15 @@
         }
       ]
     },
+    "defnclass_name": {
+      "type": "ALIAS",
+      "content": {
+        "type": "SYMBOL",
+        "name": "id"
+      },
+      "named": false,
+      "value": "defnclass_name"
+    },
     "defn": {
       "type": "SEQ",
       "members": [
@@ -169,7 +178,7 @@
           "name": "definition_name",
           "content": {
             "type": "SYMBOL",
-            "name": "string"
+            "name": "defn_name"
           }
         },
         {
@@ -215,6 +224,15 @@
           }
         }
       ]
+    },
+    "defn_name": {
+      "type": "ALIAS",
+      "content": {
+        "type": "SYMBOL",
+        "name": "id"
+      },
+      "named": false,
+      "value": "defn_name"
     },
     "defn_rule": {
       "type": "SEQ",

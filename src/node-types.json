@@ -32,7 +32,7 @@
         "required": true,
         "types": [
           {
-            "type": "string",
+            "type": "defn_name",
             "named": true
           }
         ]
@@ -80,6 +80,11 @@
     }
   },
   {
+    "type": "defn_name",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "defn_rule",
     "named": true,
     "fields": {
@@ -124,7 +129,7 @@
         "required": true,
         "types": [
           {
-            "type": "string",
+            "type": "defnclass_name",
             "named": true
           }
         ]
@@ -162,13 +167,18 @@
     }
   },
   {
+    "type": "defnclass_name",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "dots",
     "named": true,
     "fields": {}
   },
   {
     "type": "element",
-    "named": false,
+    "named": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -503,6 +513,14 @@
     "named": false
   },
   {
+    "type": "defn_name",
+    "named": false
+  },
+  {
+    "type": "defnclass_name",
+    "named": false
+  },
+  {
     "type": "defns",
     "named": false
   },
@@ -520,11 +538,11 @@
   },
   {
     "type": "id",
-    "named": true
+    "named": false
   },
   {
     "type": "id",
-    "named": false
+    "named": true
   },
   {
     "type": "indexvar",

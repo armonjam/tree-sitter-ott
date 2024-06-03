@@ -6,7 +6,7 @@ typing :: 'ty_' ::=
 ---
 (source_file
   (defnclass
-    class_name: (string)
+    class_name: (defnclass_name)
     namespace_prefix: (namespace_prefix)))
 
 ========================
@@ -30,7 +30,7 @@ by
 ---
 (source_file
   (defnclass
-    class_name: (string)
+    class_name: (defnclass_name)
     namespace_prefix: (namespace_prefix)
     definition: (defn
       element: (element)
@@ -40,7 +40,7 @@ by
       element: (element)
       element: (element)
       element: (element)
-      definition_name: (string)
+      definition_name: (defn_name)
       namespace_prefix: (namespace_prefix))))
 
 ==================================
@@ -69,7 +69,7 @@ by
 ---
 (source_file
   (defnclass
-    class_name: (string)
+    class_name: (defnclass_name)
     namespace_prefix: (namespace_prefix)
     definition: (defn
       element: (element)
@@ -79,7 +79,7 @@ by
       element: (element)
       element: (element)
       element: (element)
-      definition_name: (string)
+      definition_name: (defn_name)
       namespace_prefix: (namespace_prefix))))
 
 =====================================================
@@ -95,12 +95,12 @@ by
 ---
 (source_file
   (defnclass
-    class_name: (string)
+    class_name: (defnclass_name)
     namespace_prefix: (namespace_prefix)
     definition: (defn
       element: (element)
       element: (element)
-      definition_name: (string)
+      definition_name: (defn_name)
       namespace_prefix: (namespace_prefix)
       homomorphism: (homomorphism
         name: (hom_name)
@@ -123,12 +123,12 @@ by
 ---
 (source_file
   (defnclass
-    class_name: (string)
+    class_name: (defnclass_name)
     namespace_prefix: (namespace_prefix)
     definition: (defn
       element: (element)
       element: (element)
-      definition_name: (string)
+      definition_name: (defn_name)
       namespace_prefix: (namespace_prefix)
       definition_rule: (defn_rule
         separator: (rule_separator
@@ -152,12 +152,12 @@ by
 ---
 (source_file
   (defnclass
-    class_name: (string)
+    class_name: (defnclass_name)
     namespace_prefix: (namespace_prefix)
     definition: (defn
       element: (element)
       element: (element)
-      definition_name: (string)
+      definition_name: (defn_name)
       namespace_prefix: (namespace_prefix)
       definition_rule: (defn_rule
         separator: (rule_separator
@@ -213,12 +213,12 @@ gg |- z3
 ---
 (source_file
   (defnclass
-    class_name: (string)
+    class_name: (defnclass_name)
     namespace_prefix: (namespace_prefix)
     definition: (defn
       element: (element)
       element: (element)
-      definition_name: (string)
+      definition_name: (defn_name)
       namespace_prefix: (namespace_prefix)
       definition_rule: (defn_rule
         premise: (rule_line)
@@ -246,12 +246,12 @@ gg |- z3
 ---
 (source_file
   (defnclass
-    class_name: (string)
+    class_name: (defnclass_name)
     namespace_prefix: (namespace_prefix)
     definition: (defn
       element: (element)
       element: (element)
-      definition_name: (string)
+      definition_name: (defn_name)
       namespace_prefix: (namespace_prefix)
       definition_rule: (defn_rule
         premise: (rule_line)
@@ -283,12 +283,12 @@ by
 ---
 (source_file
   (defnclass
-    class_name: (string)
+    class_name: (defnclass_name)
     namespace_prefix: (namespace_prefix)
     definition: (defn
       element: (element)
       element: (element)
-      definition_name: (string)
+      definition_name: (defn_name)
       namespace_prefix: (namespace_prefix)
       definition_rule: (defn_rule
         separator: (rule_separator
@@ -327,12 +327,12 @@ by
 ---
 (source_file
   (defnclass
-    class_name: (string)
+    class_name: (defnclass_name)
     namespace_prefix: (namespace_prefix)
     definition: (defn
       element: (element)
       element: (element)
-      definition_name: (string)
+      definition_name: (defn_name)
       namespace_prefix: (namespace_prefix)
       definition_rule: (defn_rule
         separator: (rule_separator
@@ -343,7 +343,7 @@ by
       element: (element)
       element: (element)
       element: (element)
-      definition_name: (string)
+      definition_name: (defn_name)
       namespace_prefix: (namespace_prefix)
       definition_rule: (defn_rule
         premise: (rule_line)
@@ -378,12 +378,12 @@ by
 ---
 (source_file
   (defnclass
-    class_name: (string)
+    class_name: (defnclass_name)
     namespace_prefix: (namespace_prefix)
     definition: (defn
       element: (element)
       element: (element)
-      definition_name: (string)
+      definition_name: (defn_name)
       namespace_prefix: (namespace_prefix)
       definition_rule: (defn_rule
         separator: (rule_separator
@@ -391,7 +391,7 @@ by
           rule_name: (string))
         conclusion: (rule_line))))
   (defnclass
-    class_name: (string)
+    class_name: (defnclass_name)
     namespace_prefix: (namespace_prefix)
     definition: (defn
       element: (element)
@@ -399,7 +399,7 @@ by
       element: (element)
       element: (element)
       element: (element)
-      definition_name: (string)
+      definition_name: (defn_name)
       namespace_prefix: (namespace_prefix)
       definition_rule: (defn_rule
         separator: (rule_separator

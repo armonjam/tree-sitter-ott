@@ -93,5 +93,5 @@ typing :: 'ty_' ::=
           (id)))
       production_name: (string)))
   (defnclass
-    class_name: (string)
+    class_name: (defnclass_name)
     namespace_prefix: (namespace_prefix)))

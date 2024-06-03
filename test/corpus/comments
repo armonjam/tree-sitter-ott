@@ -87,12 +87,12 @@ gg |- z3
 ---
 (source_file
   (defnclass
-    class_name: (string)
+    class_name: (defnclass_name)
     namespace_prefix: (namespace_prefix)
     definition: (defn
       element: (element)
       element: (element)
-      definition_name: (string)
+      definition_name: (defn_name)
       namespace_prefix: (namespace_prefix)
       definition_rule: (defn_rule
         premise: (rule_line)
@@ -120,12 +120,12 @@ by % Add more rules later
 ---
 (source_file
   (defnclass
-    class_name: (string)
+    class_name: (defnclass_name)
     namespace_prefix: (namespace_prefix)
     definition: (defn
       element: (element)
       element: (element)
-      definition_name: (string)
+      definition_name: (defn_name)
       namespace_prefix: (namespace_prefix)
       (comment)
       definition_rule: (defn_rule

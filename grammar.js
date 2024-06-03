@@ -22,7 +22,7 @@ module.exports = grammar({
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     defnclass: $ => seq(
-      field('class_name', $.string),
+      field('class_name', $.defnclass_name),
       '::',
       field('namespace_prefix', $.namespace_prefix),
       '::=',
@@ -30,13 +30,15 @@ module.exports = grammar({
       field('definition', repeat($.defn)),
     ),
 
+    defnclass_name: $ => alias($.id, 'defnclass_name'),
+
     defn: $ => seq(
       token(prec(10, 'defn')),
       field('element', repeat($.element)),
       '::',
       // TODO: Use ids in between here like the spec
       '::',
-      field('definition_name', $.string),
+      field('definition_name', $.defn_name),
       '::',
       field('namespace_prefix', $.namespace_prefix),
       field('homomorphism', repeat($.homomorphism)),
@@ -44,6 +46,8 @@ module.exports = grammar({
       '\n',
       field('definition_rule', repeat($.defn_rule)),
     ),
+
+    defn_name: $ => alias($.id, 'defn_name'),
 
     defn_rule: $ => seq(
       field('premise', repeat($.rule_line)),

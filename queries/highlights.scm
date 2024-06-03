@@ -13,10 +13,11 @@
   "embed"
 ] @keyword
 
-(defnclass
-  class_name: (string) @function)
-(defn
-  definition_name: (string) @function.method)
+(defnclass_name) @function
+(defn_name) @function.method
+(namespace_prefix) @string
+(hom_name) @keyword
+(comment) @comment
 
 (rule_separator
   rule_name: (string) @property)
@@ -24,14 +25,6 @@
 (production
   modifier: (id)* @type
   production_name: (string) @property)
-
-(comment) @comment
-(namespace_prefix) @string
-
-(homomorphism
-  open: "{{" @punctuation.bracket
-  name: (hom_name) @keyword
-  close: "}}" @punctuation.bracket)
 
 [
  (dash_line)
@@ -41,6 +34,11 @@
   "::="
   ","
 ] @punctuation.delimiter
+
+[
+ "{{"
+ "}}"
+] @punctuation.bracket
 
 [
   "</"
