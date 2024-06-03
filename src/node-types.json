@@ -178,7 +178,7 @@
   },
   {
     "type": "element",
-    "named": true,
+    "named": false,
     "fields": {},
     "children": {
       "multiple": true,
@@ -248,7 +248,57 @@
   {
     "type": "hom_body",
     "named": true,
-    "fields": {}
+    "fields": {
+      "hom_inner_block": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "hom_inner_block",
+            "named": true
+          }
+        ]
+      },
+      "hom_string": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "hom_string",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "dots",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "hom_inner_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comprehension_bound",
+          "named": true
+        },
+        {
+          "type": "dots",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "hom_name",
@@ -516,6 +566,14 @@
     "named": false
   },
   {
+    "type": "[[",
+    "named": false
+  },
+  {
+    "type": "]]",
+    "named": false
+  },
+  {
     "type": "by",
     "named": false
   },
@@ -545,6 +603,10 @@
   },
   {
     "type": "grammar",
+    "named": false
+  },
+  {
+    "type": "hom_inner_string",
     "named": false
   },
   {

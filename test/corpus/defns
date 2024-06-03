@@ -4,6 +4,7 @@ empty defnclass
 defns
 typing :: 'ty_' ::=
 ---
+
 (source_file
   (defnclass
     class_name: (defnclass_name)
@@ -93,6 +94,7 @@ defn
 by
 
 ---
+
 (source_file
   (defnclass
     class_name: (defnclass_name)
@@ -104,8 +106,9 @@ by
       namespace_prefix: (namespace_prefix)
       homomorphism: (homomorphism
         name: (hom_name)
-        body: (hom_body)))))
-
+        body: (hom_body
+          hom_inner_block: (hom_inner_block)
+          hom_inner_block: (hom_inner_block))))))
 
 =====================================================
 single defn block with one rule with no predicates
@@ -121,6 +124,7 @@ by
 |- z1 o z2 ~ z3
 
 ---
+
 (source_file
   (defnclass
     class_name: (defnclass_name)
@@ -150,6 +154,7 @@ by
 |- z1 o z2 ~ z3
 
 ---
+
 (source_file
   (defnclass
     class_name: (defnclass_name)
@@ -211,6 +216,7 @@ gg |- z3
 |- z1 o z2 ~ z3
 
 ---
+
 (source_file
   (defnclass
     class_name: (defnclass_name)
@@ -244,6 +250,7 @@ gg |- z3
 |- z1 o z2 ~ z3
 
 ---
+
 (source_file
   (defnclass
     class_name: (defnclass_name)
@@ -281,6 +288,7 @@ by
 |- z1 < d z2
 
 ---
+
 (source_file
   (defnclass
     class_name: (defnclass_name)
@@ -325,6 +333,7 @@ by
 |- psi mem gg
 
 ---
+
 (source_file
   (defnclass
     class_name: (defnclass_name)
@@ -376,6 +385,7 @@ by
 |- true : boolean
 
 ---
+
 (source_file
   (defnclass
     class_name: (defnclass_name)

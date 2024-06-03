@@ -3,6 +3,12 @@ module.exports = grammar({
 
   extras: $ => [/\s/, $.comment],
 
+  externals: $ => [
+    $.hom_string,
+    $.hom_inner_string,
+    $.error_sentinel,
+  ],
+
   //word: $ => $.id,
 
   rules: {
@@ -149,12 +155,10 @@ module.exports = grammar({
     // % homomorphism
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    // TODO: replace with external parser
     homomorphism: $ => seq(
       field('open', '{{'),
       field('name', $.hom_name),
-      // TODO: parse the actual body for inner elements
-      field('body', alias(repeat(alias($.string, 'hom_string')), $.hom_body)),
+      field('body', alias(repeat($._hom_element), $.hom_body)),
       field('close', token(prec(1, '}}'))),
     ),
 
@@ -163,6 +167,27 @@ module.exports = grammar({
       'tex-preamble',
       // TODO: add more hom names
     ),
+
+    _hom_element: $ => choice(
+      field('hom_string', $._hom_string),
+      field('hom_inner_block', $.hom_inner_block),
+      $.dots,
+    ),
+
+
+    hom_inner_block: $ => seq("[[", $._hom_inner, "]]"),
+
+    _hom_inner: $ => choice(
+      // NOTE: that _hom_inner_string is not required for all of these, just the ones
+      // that appear at the end of the rule. But to stay consistent we use it everywhere
+      // here.
+      repeat1($._hom_inner_string),
+      seq(repeat($._hom_inner_string), $.dots, repeat($._hom_inner_string)),
+      seq('</', repeat($._hom_inner_string), '//', $.comprehension_bound, '/>'),
+    ),
+
+    _hom_string: $ => alias($.hom_string, 'hom_string'),
+    _hom_inner_string: $ => alias($.hom_inner_string, 'hom_inner_string'),
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     // % other

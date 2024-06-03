@@ -5,6 +5,7 @@ single variable metavar
 metavar a ::=
 
 ---
+
 (source_file
   (metavardefn
     (id_desc
@@ -17,6 +18,7 @@ single variable indexvar
 indexvar i ::=
 
 ---
+
 (source_file
   (metavardefn
     (id_desc
@@ -28,6 +30,7 @@ multiple variables
 metavar a, b, c ::=
 
 ---
+
 (source_file
   (metavardefn
     (id_desc
@@ -43,6 +46,7 @@ multiple variables with varying whitespace
 metavar a , b,c,d ::=
 
 ---
+
 (source_file
   (metavardefn
     (id_desc
@@ -68,6 +72,7 @@ string as homomorphism body
 metavar a {{ tex \ell }}, b ::=
 
 ---
+
 (source_file
   (metavardefn
     (id_desc
@@ -80,11 +85,11 @@ metavar a {{ tex \ell }}, b ::=
 
 ============================
 string as homomorphism body without inner whitespace
-:skip
 ============================
 metavar a {{tex \ell}}, b ::=
 
 ---
+
 (source_file
   (metavardefn
     (id_desc
@@ -96,18 +101,27 @@ metavar a {{tex \ell}}, b ::=
       (id))))
 
 ============================
+string as homomorphism body with no closing brace
+:error
+============================
+metavar a {{tex \ell
+
+---
+============================
 homInner as homomorphism body
 ============================
 metavar a {{ tex [[gg]] }}, b ::=
 
 ---
+
 (source_file
   (metavardefn
     (id_desc
       (id)
       (homomorphism
         (hom_name)
-        (hom_body)))
+        (hom_body
+          (hom_inner_block))))
     (id_desc
       (id))))
 
@@ -116,19 +130,20 @@ multiple homomorphisms
 ============================
 metavar a {{ tex [[gg]] }}, b {{ tex \normalcolor }}::=
 ---
+
 (source_file
   (metavardefn
     (id_desc
       (id)
       (homomorphism
         (hom_name)
-        (hom_body)))
+        (hom_body
+          (hom_inner_block))))
     (id_desc
       (id)
       (homomorphism
         (hom_name)
         (hom_body)))))
-
 
 ============================
 multiple identifiers in homInner
@@ -136,13 +151,14 @@ multiple identifiers in homInner
 metavar a {{ tex [[gg |- f]] }}, b ::=
 
 ---
+
 (source_file
   (metavardefn
     (id_desc
       (id)
       (homomorphism
         (hom_name)
-        (hom_body)))
+        (hom_body
+          (hom_inner_block))))
     (id_desc
       (id))))
-

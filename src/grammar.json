@@ -703,13 +703,8 @@
             "content": {
               "type": "REPEAT",
               "content": {
-                "type": "ALIAS",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "string"
-                },
-                "named": false,
-                "value": "hom_string"
+                "type": "SYMBOL",
+                "name": "_hom_element"
               }
             },
             "named": true,
@@ -745,6 +740,129 @@
           "value": "tex-preamble"
         }
       ]
+    },
+    "_hom_element": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "hom_string",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_hom_string"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "hom_inner_block",
+          "content": {
+            "type": "SYMBOL",
+            "name": "hom_inner_block"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dots"
+        }
+      ]
+    },
+    "hom_inner_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "[["
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_hom_inner"
+        },
+        {
+          "type": "STRING",
+          "value": "]]"
+        }
+      ]
+    },
+    "_hom_inner": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_hom_inner_string"
+          }
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_hom_inner_string"
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "dots"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_hom_inner_string"
+              }
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "</"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_hom_inner_string"
+              }
+            },
+            {
+              "type": "STRING",
+              "value": "//"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "comprehension_bound"
+            },
+            {
+              "type": "STRING",
+              "value": "/>"
+            }
+          ]
+        }
+      ]
+    },
+    "_hom_string": {
+      "type": "ALIAS",
+      "content": {
+        "type": "SYMBOL",
+        "name": "hom_string"
+      },
+      "named": false,
+      "value": "hom_string"
+    },
+    "_hom_inner_string": {
+      "type": "ALIAS",
+      "content": {
+        "type": "SYMBOL",
+        "name": "hom_inner_string"
+      },
+      "named": false,
+      "value": "hom_inner_string"
     },
     "comment": {
       "type": "PATTERN",
@@ -841,7 +959,20 @@
   ],
   "conflicts": [],
   "precedences": [],
-  "externals": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "hom_string"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "hom_inner_string"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "error_sentinel"
+    }
+  ],
   "inline": [],
   "supertypes": []
 }

@@ -4,6 +4,7 @@ no productions
 grammar
 type, t :: 't_' ::=
 ---
+
 (source_file
   (grammar_rule
     (id_desc
@@ -28,6 +29,7 @@ grammar
 term, M :: 'term_' ::=
   | x               ::  :: var
 ---
+
 (source_file
   (grammar_rule
     (id_desc
@@ -47,6 +49,7 @@ grammar
 term, M :: 'term_' ::=
   | x1 ... xn            ::  :: var
 ---
+
 (source_file
   (grammar_rule
     (id_desc
@@ -69,6 +72,7 @@ grammar
 term, M :: 'term_' ::=
   | </ ggi |- c // i />            ::  :: var
 ---
+
 (source_file
   (grammar_rule
     (id_desc
@@ -93,6 +97,7 @@ grammar
 term, M :: 'term_' ::=
   | </ ggi |- c // i IN n />            ::  :: var
 ---
+
 (source_file
   (grammar_rule
     (id_desc
@@ -118,6 +123,7 @@ grammar
 term, M :: 'term_' ::=
   | </ ggi |- c // i IN 1 .. n />            ::  :: var
 ---
+
 (source_file
   (grammar_rule
     (id_desc
@@ -143,6 +149,7 @@ inline grammar token
 grammar term, M :: 'term_' ::=
   | x               ::  :: var
 ---
+
 (source_file
   (grammar_rule
     (id_desc
@@ -160,6 +167,7 @@ production mod
 grammar term, M :: 'term_' ::=
   | x               :: S:: var
 ---
+
 (source_file
   (grammar_rule
     (id_desc
@@ -180,6 +188,7 @@ term, M :: 'term_' ::=
   | x               ::  :: var
   | \ x . M         ::  :: lam
 ---
+
 (source_file
   (grammar_rule
     (id_desc
@@ -205,6 +214,7 @@ term, M :: 'term_' ::=
   | x               ::  :: var {{ tex [[x]] }}
   | \ x . M         ::  :: lam {{ tex \lambda [[x]] . [[M]] }}
 ---
+
 (source_file
   (grammar_rule
     (id_desc
@@ -217,7 +227,8 @@ term, M :: 'term_' ::=
       production_name: (production_name)
       homomorphism: (homomorphism
         name: (hom_name)
-        body: (hom_body)))
+        body: (hom_body
+          hom_inner_block: (hom_inner_block))))
     (production
       element: (element)
       element: (element)
@@ -226,7 +237,9 @@ term, M :: 'term_' ::=
       production_name: (production_name)
       homomorphism: (homomorphism
         name: (hom_name)
-        body: (hom_body)))))
+        body: (hom_body
+          hom_inner_block: (hom_inner_block)
+          hom_inner_block: (hom_inner_block))))))
 
 ===================
 multiple grammar blocks
@@ -237,6 +250,7 @@ term, M :: 'term_' ::=
 type, t :: 'ty_' ::=
   | a               ::  :: var
 ---
+
 (source_file
   (grammar_rule
     (id_desc
