@@ -406,7 +406,7 @@
             "type": "REPEAT",
             "content": {
               "type": "SYMBOL",
-              "name": "id"
+              "name": "production_mod"
             }
           }
         },
@@ -434,6 +434,15 @@
           }
         }
       ]
+    },
+    "production_mod": {
+      "type": "ALIAS",
+      "content": {
+        "type": "SYMBOL",
+        "name": "id"
+      },
+      "named": false,
+      "value": "production_modifier"
     },
     "element": {
       "type": "CHOICE",

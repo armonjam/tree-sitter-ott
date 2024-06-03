@@ -168,9 +168,9 @@ grammar term, M :: 'term_' ::=
       (id))
     (namespace_prefix)
     (production
-      (element)
-      (id)
-      (string))))
+      element: (element)
+      modifier: (production_mod)
+      production_name: (string))))
 
 ======================
 multiple productions

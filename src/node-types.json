@@ -373,7 +373,7 @@
         "required": false,
         "types": [
           {
-            "type": "id",
+            "type": "production_mod",
             "named": true
           }
         ]
@@ -389,6 +389,11 @@
         ]
       }
     }
+  },
+  {
+    "type": "production_mod",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "rule_line",
@@ -554,6 +559,10 @@
   },
   {
     "type": "metavar",
+    "named": false
+  },
+  {
+    "type": "production_modifier",
     "named": false
   },
   {

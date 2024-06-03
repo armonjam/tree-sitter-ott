@@ -18,12 +18,12 @@
 (namespace_prefix) @string
 (hom_name) @keyword
 (comment) @comment
+(production_mod) @type
 
 (rule_separator
   rule_name: (string) @property)
 
 (production
-  modifier: (id)* @type
   production_name: (string) @property)
 
 [

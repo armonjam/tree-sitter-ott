@@ -91,12 +91,14 @@ module.exports = grammar({
       '|',
       field('element', repeat($.element)),
       '::',
-      field('modifier', repeat($.id)),
+      field('modifier', repeat($.production_mod)),
       '::',
       field('production_name', $.string),
       // TODO: bindspecs,
       field('homomorphism', repeat($.homomorphism)),
     ),
+
+    production_mod: $ => alias($.id, 'production_modifier'),
 
     element: $ => choice(
       alias($.string, 'symbol'),
