@@ -9,10 +9,7 @@ module.exports = grammar({
     $.error_sentinel,
   ],
 
-  //word: $ => $.id,
-
   rules: {
-    // main:
     source_file: $ => repeat($._item),
 
     _item: $ => choice(
@@ -136,11 +133,10 @@ module.exports = grammar({
       $.id_desc,
       repeat(seq(',', $.id_desc))
     ),
-    //id_desc_list: $ => optional($._id_desc_list1),
     id_desc: $ => seq($.id, repeat($.homomorphism)),
 
-    /// i IN 1 .. n
     comprehension_bound: $ =>
+      // TODO: are `id`s okay here?
       seq($.id, optional(seq('IN', $.id, optional(seq($.dots, $.id)))),),
 
 
@@ -199,7 +195,10 @@ module.exports = grammar({
       alias($.id, 'id'),
       seq("\'", optional(alias($.id, 'q_id')), "\'"),
     ),
+    // TODO: change to use allowed range of identifiers
     id: _ => /[a-zA-Z\d_]+/,
+    // TODO: I think `string` conflicts with stuff in queries/highlights.scm
+    // so we might wanna change the name here.
     string: _ => /\S+/,
   }
 });
