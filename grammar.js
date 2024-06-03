@@ -59,9 +59,11 @@ module.exports = grammar({
     rule_separator: $ => seq(
       field('line', $.dash_line),
       '::',
-      field('rule_name', $.string),
+      field('rule_name', $.rule_name),
       '\n',
     ),
+
+    rule_name: $ => alias($.id, 'rule_name'),
 
     dash_line: _ => seq(
       token(prec(2, '----')),

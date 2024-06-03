@@ -101,7 +101,7 @@ gg |- z3
         premise: (rule_line)
         separator: (rule_separator
           line: (dash_line)
-          rule_name: (string))
+          rule_name: (rule_name))
         conclusion: (rule_line)))))
 
 ==================================
@@ -131,5 +131,5 @@ by % Add more rules later
       definition_rule: (defn_rule
         separator: (rule_separator
           line: (dash_line)
-          rule_name: (string))
+          rule_name: (rule_name))
         conclusion: (rule_line)))))

@@ -286,7 +286,7 @@
           "name": "rule_name",
           "content": {
             "type": "SYMBOL",
-            "name": "string"
+            "name": "rule_name"
           }
         },
         {
@@ -294,6 +294,15 @@
           "value": "\n"
         }
       ]
+    },
+    "rule_name": {
+      "type": "ALIAS",
+      "content": {
+        "type": "SYMBOL",
+        "name": "id"
+      },
+      "named": false,
+      "value": "rule_name"
     },
     "dash_line": {
       "type": "SEQ",

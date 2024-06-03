@@ -406,6 +406,11 @@
     "fields": {}
   },
   {
+    "type": "rule_name",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "rule_separator",
     "named": true,
     "fields": {
@@ -424,7 +429,7 @@
         "required": true,
         "types": [
           {
-            "type": "string",
+            "type": "rule_name",
             "named": true
           }
         ]
@@ -576,6 +581,10 @@
   },
   {
     "type": "q_id",
+    "named": false
+  },
+  {
+    "type": "rule_name",
     "named": false
   },
   {

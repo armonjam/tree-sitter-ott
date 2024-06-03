@@ -1,28 +1,12 @@
-; Identifiers
-;------------
-
 (element) @variable
-
-[
-  "metavar"
-  "indexvar"
-  "grammar"
-  "defns"
-  "defn"
-  "by"
-  "embed"
-] @keyword
-
 (defnclass_name) @function
 (defn_name) @function.method
+(rule_name) @property
 (namespace_prefix) @string
 (hom_name) @keyword
 (comment) @comment
 (production_name) @property
 (production_mod) @type
-
-(rule_separator
-  rule_name: (string) @property)
 
 [
  (dash_line)
@@ -43,3 +27,13 @@
   "//"
   "/>"
 ] @punctuation.special
+
+[
+  "metavar"
+  "indexvar"
+  "grammar"
+  "defns"
+  "defn"
+  "by"
+  "embed"
+] @keyword

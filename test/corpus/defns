@@ -133,7 +133,7 @@ by
       definition_rule: (defn_rule
         separator: (rule_separator
           line: (dash_line)
-          rule_name: (string))
+          rule_name: (rule_name))
         conclusion: (rule_line)))))
 
 =====================================================
@@ -162,7 +162,7 @@ by
       definition_rule: (defn_rule
         separator: (rule_separator
           line: (dash_line)
-          rule_name: (string))
+          rule_name: (rule_name))
         conclusion: (rule_line)))))
 
 =====================================================
@@ -224,7 +224,7 @@ gg |- z3
         premise: (rule_line)
         separator: (rule_separator
           line: (dash_line)
-          rule_name: (string))
+          rule_name: (rule_name))
         conclusion: (rule_line)))))
 
 =========================================================
@@ -259,7 +259,7 @@ gg |- z3
         premise: (rule_line)
         separator: (rule_separator
           line: (dash_line)
-          rule_name: (string))
+          rule_name: (rule_name))
         conclusion: (rule_line)))))
 
 =====================================================
@@ -293,13 +293,13 @@ by
       definition_rule: (defn_rule
         separator: (rule_separator
           line: (dash_line)
-          rule_name: (string))
+          rule_name: (rule_name))
         conclusion: (rule_line))
       definition_rule: (defn_rule
         premise: (rule_line)
         separator: (rule_separator
           line: (dash_line)
-          rule_name: (string))
+          rule_name: (rule_name))
         conclusion: (rule_line)))))
 
 =====================================================
@@ -337,7 +337,7 @@ by
       definition_rule: (defn_rule
         separator: (rule_separator
           line: (dash_line)
-          rule_name: (string))
+          rule_name: (rule_name))
         conclusion: (rule_line)))
     definition: (defn
       element: (element)
@@ -349,7 +349,7 @@ by
         premise: (rule_line)
         separator: (rule_separator
           line: (dash_line)
-          rule_name: (string))
+          rule_name: (rule_name))
         conclusion: (rule_line)))))
 
 =====================================================
@@ -388,7 +388,7 @@ by
       definition_rule: (defn_rule
         separator: (rule_separator
           line: (dash_line)
-          rule_name: (string))
+          rule_name: (rule_name))
         conclusion: (rule_line))))
   (defnclass
     class_name: (defnclass_name)
@@ -404,5 +404,5 @@ by
       definition_rule: (defn_rule
         separator: (rule_separator
           line: (dash_line)
-          rule_name: (string))
+          rule_name: (rule_name))
         conclusion: (rule_line)))))
