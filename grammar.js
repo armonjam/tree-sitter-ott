@@ -153,7 +153,8 @@ module.exports = grammar({
     homomorphism: $ => seq(
       field('open', '{{'),
       field('name', $.hom_name),
-      field('body', $.hom_body),
+      // TODO: parse the actual body for inner elements
+      field('body', alias(repeat(alias($.string, 'hom_string')), $.hom_body)),
       field('close', token(prec(1, '}}'))),
     ),
 
@@ -161,10 +162,6 @@ module.exports = grammar({
       'tex',
       'tex-preamble',
       // TODO: add more hom names
-    ),
-
-    hom_body: $ => repeat1(
-      alias($.string, 'hom_string')
     ),
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

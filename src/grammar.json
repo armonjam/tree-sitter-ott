@@ -699,8 +699,21 @@
           "type": "FIELD",
           "name": "body",
           "content": {
-            "type": "SYMBOL",
-            "name": "hom_body"
+            "type": "ALIAS",
+            "content": {
+              "type": "REPEAT",
+              "content": {
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "string"
+                },
+                "named": false,
+                "value": "hom_string"
+              }
+            },
+            "named": true,
+            "value": "hom_body"
           }
         },
         {
@@ -732,18 +745,6 @@
           "value": "tex-preamble"
         }
       ]
-    },
-    "hom_body": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "ALIAS",
-        "content": {
-          "type": "SYMBOL",
-          "name": "string"
-        },
-        "named": false,
-        "value": "hom_string"
-      }
     },
     "comment": {
       "type": "PATTERN",
