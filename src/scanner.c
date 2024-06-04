@@ -1,10 +1,8 @@
 #include "tree_sitter/parser.h"
-#include "tree_sitter/alloc.h"
-#include "tree_sitter/array.h"
 #include <ctype.h>
-#include <stdio.h>
 
 enum TokenType {
+    LINE_END,
     HOM_STRING,
     HOM_INNER_STRING,
     ERROR_SENTINEL
@@ -36,6 +34,14 @@ void tree_sitter_ott_external_scanner_deserialize(
     // NOTE: This function should restore the state
     // of the scanner based on the bytes that were previously
     // written by the serialize function.
+}
+
+bool scan_line_end(TSLexer *lexer) {
+    if (lexer->lookahead == '\n') {
+        lexer->advance(lexer, false);
+        return true;
+    }
+    return lexer->eof(lexer);
 }
 
 bool scan_hom_string(TSLexer *lexer, bool is_empty) {
@@ -86,6 +92,10 @@ bool tree_sitter_ott_external_scanner_scan(
     const bool *valid_symbols
 ) {
     if (valid_symbols[ERROR_SENTINEL]) { return false; }
+    if (valid_symbols[LINE_END]) {
+        lexer->result_symbol = LINE_END;
+        return scan_line_end(lexer);
+    }
     if (valid_symbols[HOM_STRING]) {
         lexer->result_symbol = HOM_STRING;
         return scan_hom_string(lexer, true);

@@ -59,7 +59,6 @@ by
 
 ==================================
 single defn block with no rules and no newline
-:skip
 ==================================
 defns
 typing :: 'ty_' ::=
@@ -141,6 +140,35 @@ by
         conclusion: (rule_line)))))
 
 =====================================================
+no blank line after last rule
+=====================================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: psi_wf :: 'psi_wf_'
+by
+
+---------------- :: Combo
+|- z1 o z2 ~ z3
+---
+
+(source_file
+  (defnclass
+    class_name: (defnclass_name)
+    namespace_prefix: (namespace_prefix)
+    definition: (defn
+      element: (element)
+      element: (element)
+      definition_name: (defn_name)
+      namespace_prefix: (namespace_prefix)
+      definition_rule: (defn_rule
+        separator: (rule_separator
+          line: (dash_line)
+          rule_name: (rule_name))
+        conclusion: (rule_line)))))
+
+=====================================================
 multiple newlines after last rule
 =====================================================
 defns
@@ -152,6 +180,7 @@ by
 
 ---------------- :: Combo
 |- z1 o z2 ~ z3
+
 
 ---
 
@@ -182,7 +211,40 @@ defn
 by
 
 ---------------- :: Combo |- z1 o z2 ~ z3
+---
 
+=====================================================
+rule_name on next line
+:error
+:skip
+=====================================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: psi_wf :: 'psi_wf_'
+by
+
+---------------- ::
+Combo
+|- z1 o z2 ~ z3
+---
+
+=====================================================
+double-colon on next line
+:error
+:skip
+=====================================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: psi_wf :: 'psi_wf_'
+by
+
+----------------
+:: Combo
+|- z1 o z2 ~ z3
 ---
 
 =====================================================

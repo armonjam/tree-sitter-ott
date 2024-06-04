@@ -209,8 +209,8 @@
           "value": "by"
         },
         {
-          "type": "STRING",
-          "value": "\n"
+          "type": "SYMBOL",
+          "name": "_line_end"
         },
         {
           "type": "FIELD",
@@ -290,8 +290,8 @@
           }
         },
         {
-          "type": "STRING",
-          "value": "\n"
+          "type": "SYMBOL",
+          "name": "_line_end"
         }
       ]
     },
@@ -346,8 +346,8 @@
           }
         },
         {
-          "type": "STRING",
-          "value": "\n"
+          "type": "SYMBOL",
+          "name": "_line_end"
         }
       ]
     },
@@ -837,6 +837,15 @@
         }
       ]
     },
+    "_line_end": {
+      "type": "ALIAS",
+      "content": {
+        "type": "SYMBOL",
+        "name": "line_end"
+      },
+      "named": false,
+      "value": "line_end"
+    },
     "_hom_string": {
       "type": "ALIAS",
       "content": {
@@ -875,15 +884,6 @@
           "value": "...."
         }
       ]
-    },
-    "label": {
-      "type": "ALIAS",
-      "content": {
-        "type": "SYMBOL",
-        "name": "id"
-      },
-      "named": false,
-      "value": "label"
     },
     "namespace_prefix": {
       "type": "CHOICE",
@@ -951,6 +951,10 @@
   "conflicts": [],
   "precedences": [],
   "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "line_end"
+    },
     {
       "type": "SYMBOL",
       "name": "hom_string"

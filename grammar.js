@@ -4,6 +4,7 @@ module.exports = grammar({
   extras: $ => [/\s/, $.comment],
 
   externals: $ => [
+    $.line_end,
     $.hom_string,
     $.hom_inner_string,
     $.error_sentinel,
@@ -46,7 +47,7 @@ module.exports = grammar({
       field('namespace_prefix', $.namespace_prefix),
       field('homomorphism', repeat($.homomorphism)),
       'by',
-      '\n',
+      $._line_end,
       field('definition_rule', repeat($.defn_rule)),
     ),
 
@@ -63,7 +64,7 @@ module.exports = grammar({
       field('line', $.dash_line),
       '::',
       field('rule_name', $.rule_name),
-      '\n',
+      $._line_end,
     ),
 
     rule_name: $ => alias($.id, 'rule_name'),
@@ -75,7 +76,7 @@ module.exports = grammar({
 
     rule_line: $ => seq(
       repeat1(alias($.element, 'element')),
-      '\n'
+      $._line_end,
     ),
 
 
@@ -178,19 +179,20 @@ module.exports = grammar({
       seq('</', repeat($._hom_inner_string), '//', $.comprehension_bound, '/>'),
     ),
 
-    _hom_string: $ => alias($.hom_string, 'hom_string'),
-    _hom_inner_string: $ => alias($.hom_inner_string, 'hom_inner_string'),
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     // % other
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    _line_end: $ => alias($.line_end, 'line_end'),
+    _hom_string: $ => alias($.hom_string, 'hom_string'),
+    _hom_inner_string: $ => alias($.hom_inner_string, 'hom_inner_string'),
     comment: _ => /%.*/,
     dots: _ => choice(
       '..',
       '...',
       '....',
     ),
-    label: $ => alias($.id, 'label'),
     namespace_prefix: $ => choice(
       alias($.id, 'id'),
       seq("\'", optional(alias($.id, 'q_id')), "\'"),
