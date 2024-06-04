@@ -8,6 +8,15 @@ enum TokenType {
     ERROR_SENTINEL
 };
 
+uint8_t count_dots(TSLexer *lexer) {
+    int count = 0;
+    while(lexer->lookahead == '.') {
+        count += 1;
+        lexer->advance(lexer, false);
+    }
+    return count;
+}
+
 void *tree_sitter_ott_external_scanner_create(void) {
     return NULL;
 }
@@ -48,6 +57,7 @@ bool scan_hom_string(TSLexer *lexer, bool is_empty) {
     while (
         lexer->lookahead != '}'
         && lexer->lookahead != '['
+        && lexer->lookahead != '.'
         && !lexer->eof(lexer)
     ) {
         is_empty = false;
@@ -55,10 +65,18 @@ bool scan_hom_string(TSLexer *lexer, bool is_empty) {
     }
     lexer->mark_end(lexer);
     if (lexer->eof(lexer)) { return !is_empty; }
-    else { // lexer->lookahead == '}' || lexer->lookahead == '['
+    else { // lexer->lookahead == '}' || lexer->lookahead == '[' || lexer->lookahead == '.'
         uint32_t curr_char = lexer->lookahead;
         lexer->advance(lexer, false);
-        if (lexer->lookahead == curr_char) { return !is_empty; }
+        if (lexer->lookahead == curr_char) {
+            if (curr_char != '.') { return !is_empty; }
+            int dot_count = 0;
+            while(lexer->lookahead == '.') {
+                dot_count += 1;
+                lexer->advance(lexer, false);
+            }
+            if (dot_count < 4) { return !is_empty; }
+        }
     }
     return scan_hom_string(lexer, false);
 }
@@ -70,6 +88,7 @@ bool scan_hom_inner_string(TSLexer *lexer, bool is_empty) {
     }
     while (
         lexer->lookahead != ']'
+        && lexer->lookahead != '.'
         && !isspace(lexer->lookahead)
         && !(lexer->eof(lexer))
     ) {
@@ -78,9 +97,18 @@ bool scan_hom_inner_string(TSLexer *lexer, bool is_empty) {
     }
     lexer->mark_end(lexer);
     if (lexer->eof(lexer) || isspace(lexer->lookahead)) { return !is_empty; }
-    else { // lexer->lookahead == ']'
+    else { // lexer->lookahead == ']' || lexer->lookahead == '.'
+        uint32_t curr_char = lexer->lookahead;
         lexer->advance(lexer, false);
-        if (lexer->lookahead == ']') { return !is_empty; }
+        if (lexer->lookahead == curr_char) {
+            if (curr_char != '.') { return !is_empty; }
+            int dot_count = 0;
+            while(lexer->lookahead == '.') {
+                dot_count += 1;
+                lexer->advance(lexer, false);
+            }
+            if (dot_count < 4) { return !is_empty; }
+        }
     }
     return scan_hom_inner_string(lexer, false);
 }
