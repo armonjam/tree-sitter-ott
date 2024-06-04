@@ -38,4 +38,5 @@
   "defn"
   "by"
   "embed"
+  "IN"
 ] @keyword
