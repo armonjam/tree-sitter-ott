@@ -156,7 +156,7 @@ module.exports = grammar({
       field('open', '{{'),
       field('name', $.hom_name),
       field('body', alias(repeat($._hom_element), $.hom_body)),
-      field('close', token(prec(1, '}}'))),
+      field('close', '}}'),
     ),
 
     hom_name: _ => /[a-zA-Z\-]+/,
