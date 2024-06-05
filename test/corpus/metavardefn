@@ -8,8 +8,8 @@ metavar a ::=
 
 (source_file
   (metavardefn
-    (id_desc
-      (id))))
+    (string_desc
+      (string))))
 
 =========================
 single variable indexvar
@@ -21,8 +21,8 @@ indexvar i ::=
 
 (source_file
   (metavardefn
-    (id_desc
-      (id))))
+    (string_desc
+      (string))))
 
 =========================
 multiple variables
@@ -33,12 +33,12 @@ metavar a, b, c ::=
 
 (source_file
   (metavardefn
-    (id_desc
-      (id))
-    (id_desc
-      (id))
-    (id_desc
-      (id))))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
+    (string_desc
+      (string))))
 
 =========================
 multiple variables with varying whitespace
@@ -49,14 +49,14 @@ metavar a , b,c,d ::=
 
 (source_file
   (metavardefn
-    (id_desc
-      (id))
-    (id_desc
-      (id))
-    (id_desc
-      (id))
-    (id_desc
-      (id))))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
+    (string_desc
+      (string))))
 
 ============================
 string as homomorphism body
@@ -67,13 +67,13 @@ metavar a {{ tex \ell }}, b ::=
 
 (source_file
   (metavardefn
-    (id_desc
-      (id)
+    (string_desc
+      (string)
       (homomorphism
         (hom_name)
         (hom_body)))
-    (id_desc
-      (id))))
+    (string_desc
+      (string))))
 
 ============================
 string as homomorphism body without inner whitespace
@@ -84,13 +84,13 @@ metavar a {{tex \ell}}, b ::=
 
 (source_file
   (metavardefn
-    (id_desc
-      (id)
+    (string_desc
+      (string)
       (homomorphism
         (hom_name)
         (hom_body)))
-    (id_desc
-      (id))))
+    (string_desc
+      (string))))
 
 ============================
 homInner as homomorphism body
@@ -101,15 +101,15 @@ metavar a {{ tex [[gg]] }}, b ::=
 
 (source_file
   (metavardefn
-    (id_desc
-      (id)
+    (string_desc
+      (string)
       (homomorphism
         (hom_name)
         (hom_body
           (hom_inner_block
             (string)))))
-    (id_desc
-      (id))))
+    (string_desc
+      (string))))
 
 ============================
 multiple homomorphisms
@@ -119,15 +119,15 @@ metavar a {{ tex [[gg]] }}, b {{ tex \normalcolor }}::=
 
 (source_file
   (metavardefn
-    (id_desc
-      (id)
+    (string_desc
+      (string)
       (homomorphism
         (hom_name)
         (hom_body
           (hom_inner_block
             (string)))))
-    (id_desc
-      (id)
+    (string_desc
+      (string)
       (homomorphism
         (hom_name)
         (hom_body)))))
@@ -141,8 +141,8 @@ metavar a {{ tex [[gg |- f]] }}, b ::=
 
 (source_file
   (metavardefn
-    (id_desc
-      (id)
+    (string_desc
+      (string)
       (homomorphism
         (hom_name)
         (hom_body
@@ -150,8 +150,8 @@ metavar a {{ tex [[gg |- f]] }}, b ::=
             (string)
             (string)
             (string)))))
-    (id_desc
-      (id))))
+    (string_desc
+      (string))))
 
 =========================
 invalid trailing comma

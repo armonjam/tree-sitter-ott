@@ -31,10 +31,10 @@ type, t :: 't_' ::=
 (source_file
   (comment)
   (grammar_rule
-    (id_desc
-      (id))
-    (id_desc
-      (id))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
     (namespace_prefix)))
 
 ===================
@@ -49,10 +49,10 @@ type, t :: 't_' ::=
 (source_file
   (comment)
   (grammar_rule
-    (id_desc
-      (id))
-    (id_desc
-      (id))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
     (namespace_prefix))
   (comment))
 
@@ -65,10 +65,10 @@ type, t :: 't_' ::= % finish this later
 
 (source_file
   (grammar_rule
-    (id_desc
-      (id))
-    (id_desc
-      (id))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
     (namespace_prefix))
   (comment))
 

@@ -359,7 +359,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_id_desc_list1"
+          "name": "_string_desc_list1"
         },
         {
           "type": "STRING",
@@ -560,7 +560,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_id_desc_list1"
+          "name": "_string_desc_list1"
         },
         {
           "type": "STRING",
@@ -575,12 +575,12 @@
         }
       ]
     },
-    "_id_desc_list1": {
+    "_string_desc_list1": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "id_desc"
+          "name": "string_desc"
         },
         {
           "type": "REPEAT",
@@ -593,19 +593,24 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "id_desc"
+                "name": "string_desc"
               }
             ]
           }
         }
       ]
     },
-    "id_desc": {
+    "string_desc": {
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "id"
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[a-zA-Z\\d_]+"
+          },
+          "named": true,
+          "value": "string"
         },
         {
           "type": "REPEAT",
@@ -613,57 +618,6 @@
             "type": "SYMBOL",
             "name": "homomorphism"
           }
-        }
-      ]
-    },
-    "comprehension_bound": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "id"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "IN"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "id"
-                },
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SEQ",
-                      "members": [
-                        {
-                          "type": "SYMBOL",
-                          "name": "dots"
-                        },
-                        {
-                          "type": "SYMBOL",
-                          "name": "id"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BLANK"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
         }
       ]
     },
@@ -872,6 +826,57 @@
       },
       "named": true,
       "value": "string"
+    },
+    "comprehension_bound": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "id"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "IN"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "id"
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "dots"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "id"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
     },
     "comment": {
       "type": "PATTERN",

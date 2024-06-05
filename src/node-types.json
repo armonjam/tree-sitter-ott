@@ -224,15 +224,15 @@
           "named": true
         },
         {
-          "type": "id_desc",
-          "named": true
-        },
-        {
           "type": "namespace_prefix",
           "named": true
         },
         {
           "type": "production",
+          "named": true
+        },
+        {
+          "type": "string_desc",
           "named": true
         }
       ]
@@ -344,23 +344,9 @@
     }
   },
   {
-    "type": "id_desc",
+    "type": "id",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "homomorphism",
-          "named": true
-        },
-        {
-          "type": "id",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "metavardefn",
@@ -375,7 +361,7 @@
           "named": true
         },
         {
-          "type": "id_desc",
+          "type": "string_desc",
           "named": true
         }
       ]
@@ -458,8 +444,18 @@
     "fields": {}
   },
   {
+    "type": "production_modifier",
+    "named": false,
+    "fields": {}
+  },
+  {
     "type": "production_name",
     "named": true,
+    "fields": {}
+  },
+  {
+    "type": "q_id",
+    "named": false,
     "fields": {}
   },
   {
@@ -544,6 +540,25 @@
     }
   },
   {
+    "type": "string_desc",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "homomorphism",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "'",
     "named": false
   },
@@ -616,14 +631,6 @@
     "named": false
   },
   {
-    "type": "defn_name",
-    "named": false
-  },
-  {
-    "type": "defnclass_name",
-    "named": false
-  },
-  {
     "type": "defns",
     "named": false
   },
@@ -644,14 +651,6 @@
     "named": false
   },
   {
-    "type": "id",
-    "named": false
-  },
-  {
-    "type": "id",
-    "named": true
-  },
-  {
     "type": "indexvar",
     "named": false
   },
@@ -665,22 +664,6 @@
   },
   {
     "type": "metavar",
-    "named": false
-  },
-  {
-    "type": "production_modifier",
-    "named": false
-  },
-  {
-    "type": "production_name",
-    "named": false
-  },
-  {
-    "type": "q_id",
-    "named": false
-  },
-  {
-    "type": "rule_name",
     "named": false
   },
   {

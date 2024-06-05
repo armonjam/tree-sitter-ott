@@ -14,25 +14,25 @@ type, t :: 'ty_' ::=
 
 (source_file
   (metavardefn
-    (id_desc
-      (id)
+    (string_desc
+      (string)
       (homomorphism
         name: (hom_name)
         body: (hom_body)))
-    (id_desc
-      (id))
-    (id_desc
-      (id)))
+    (string_desc
+      (string))
+    (string_desc
+      (string)))
   (metavardefn
-    (id_desc
-      (id))
-    (id_desc
-      (id)))
+    (string_desc
+      (string))
+    (string_desc
+      (string)))
   (grammar_rule
-    (id_desc
-      (id))
-    (id_desc
-      (id))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
     (namespace_prefix)
     (production
       element: (string)
@@ -63,25 +63,25 @@ typing :: 'ty_' ::=
 
 (source_file
   (metavardefn
-    (id_desc
-      (id)
+    (string_desc
+      (string)
       (homomorphism
         name: (hom_name)
         body: (hom_body)))
-    (id_desc
-      (id))
-    (id_desc
-      (id)))
+    (string_desc
+      (string))
+    (string_desc
+      (string)))
   (metavardefn
-    (id_desc
-      (id))
-    (id_desc
-      (id)))
+    (string_desc
+      (string))
+    (string_desc
+      (string)))
   (grammar_rule
-    (id_desc
-      (id))
-    (id_desc
-      (id))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
     (namespace_prefix)
     (production
       element: (string)

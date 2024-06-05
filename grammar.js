@@ -88,7 +88,7 @@ module.exports = grammar({
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     grammar_rule: $ => seq(
-      $._id_desc_list1,
+      $._string_desc_list1,
       '::',
       $.namespace_prefix,
       '::=',
@@ -122,27 +122,22 @@ module.exports = grammar({
     // % metavardefn
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    /// metavar a, b {{ tex gg |- \ell }} ::=
     metavardefn: $ => seq(
       choice('metavar', 'indexvar'),
-      $._id_desc_list1,
+      $._string_desc_list1,
       '::=',
       repeat($.homomorphism),
     ),
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    // % id_desc_list
+    // % string_desc_list
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    _id_desc_list1: $ => seq(
-      $.id_desc,
-      repeat(seq(',', $.id_desc))
+    _string_desc_list1: $ => seq(
+      $.string_desc,
+      repeat(seq(',', $.string_desc))
     ),
-    id_desc: $ => seq($.id, repeat($.homomorphism)),
-
-    comprehension_bound: $ =>
-      // TODO: are `id`s okay here?
-      seq($.id, optional(seq('IN', $.id, optional(seq($.dots, $.id)))),),
+    string_desc: $ => seq(alias(/[a-zA-Z\d_]+/, $.string), repeat($.homomorphism)),
 
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -190,6 +185,10 @@ module.exports = grammar({
     _line_end: $ => alias($.line_end, 'line_end'),
     _hom_string: $ => alias($.hom_string, 'hom_string'),
     _hom_inner_string: $ => alias($.hom_inner_string, $.string),
+
+    comprehension_bound: $ =>
+      // TODO: are `id`s okay here?
+      seq($.id, optional(seq('IN', $.id, optional(seq($.dots, $.id)))),),
     comment: _ => /%.*/,
     dots: _ => choice(
       '..',

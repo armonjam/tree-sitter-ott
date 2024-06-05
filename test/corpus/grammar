@@ -7,10 +7,10 @@ type, t :: 't_' ::=
 
 (source_file
   (grammar_rule
-    (id_desc
-      (id))
-    (id_desc
-      (id))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
     (namespace_prefix)))
 
 ===================
@@ -24,10 +24,10 @@ term, M :: 'term_' ::=
 
 (source_file
   (grammar_rule
-    (id_desc
-      (id))
-    (id_desc
-      (id))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
     (namespace_prefix)
     (production
       element: (string)
@@ -44,10 +44,10 @@ term, M :: 'term_' ::=
 
 (source_file
   (grammar_rule
-    (id_desc
-      (id))
-    (id_desc
-      (id))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
     (namespace_prefix)
     (production
       element: (string)
@@ -66,10 +66,10 @@ term, M :: 'term_' ::=
 
 (source_file
   (grammar_rule
-    (id_desc
-      (id))
-    (id_desc
-      (id))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
     (namespace_prefix)
     (production
       element: (string)
@@ -90,10 +90,10 @@ term, M :: 'term_' ::=
 
 (source_file
   (grammar_rule
-    (id_desc
-      (id))
-    (id_desc
-      (id))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
     (namespace_prefix)
     (production
       element: (string)
@@ -115,10 +115,10 @@ term, M :: 'term_' ::=
 
 (source_file
   (grammar_rule
-    (id_desc
-      (id))
-    (id_desc
-      (id))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
     (namespace_prefix)
     (production
       element: (string)
@@ -140,10 +140,10 @@ grammar term, M :: 'term_' ::=
 
 (source_file
   (grammar_rule
-    (id_desc
-      (id))
-    (id_desc
-      (id))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
     (namespace_prefix)
     (production
       element: (string)
@@ -158,10 +158,10 @@ grammar term, M :: 'term_' ::=
 
 (source_file
   (grammar_rule
-    (id_desc
-      (id))
-    (id_desc
-      (id))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
     (namespace_prefix)
     (production
       element: (string)
@@ -179,10 +179,10 @@ term, M :: 'term_' ::=
 
 (source_file
   (grammar_rule
-    (id_desc
-      (id))
-    (id_desc
-      (id))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
     (namespace_prefix)
     (production
       element: (string)
@@ -205,10 +205,10 @@ term, M :: 'term_' ::=
 
 (source_file
   (grammar_rule
-    (id_desc
-      (id))
-    (id_desc
-      (id))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
     (namespace_prefix)
     (production
       element: (string)
@@ -244,19 +244,19 @@ type, t :: 'ty_' ::=
 
 (source_file
   (grammar_rule
-    (id_desc
-      (id))
-    (id_desc
-      (id))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
     (namespace_prefix)
     (production
       element: (string)
       production_name: (production_name)))
   (grammar_rule
-    (id_desc
-      (id))
-    (id_desc
-      (id))
+    (string_desc
+      (string))
+    (string_desc
+      (string))
     (namespace_prefix)
     (production
       element: (string)
