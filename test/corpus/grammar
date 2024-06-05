@@ -13,14 +13,6 @@ type, t :: 't_' ::=
       (id))
     (namespace_prefix)))
 
-===========================
-no identifier declarations
-:error
-===========================
-grammar
- :: 't_' ::=
- ---
-
 ===================
 one production
 ===================
@@ -269,3 +261,12 @@ type, t :: 'ty_' ::=
     (production
       element: (string)
       production_name: (production_name))))
+
+===========================
+no identifier declarations
+:error
+===========================
+grammar
+ :: 't_' ::=
+ ---
+

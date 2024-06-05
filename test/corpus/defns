@@ -10,14 +10,6 @@ typing :: 'ty_' ::=
     class_name: (defnclass_name)
     namespace_prefix: (namespace_prefix)))
 
-========================
-missing defnclass name
-:error
-========================
-defns
-:: 'ty_' ::=
----
-
 ==================================
 single defn block with no rules
 ==================================
@@ -44,19 +36,6 @@ by
       element: (string)
       definition_name: (defn_name)
       namespace_prefix: (namespace_prefix))))
-
-==================================
-missing rule name
-:error
-==================================
-defns
-typing :: 'ty_' ::=
-
-defn
-GG |- x : t ~> X :: :: 'typing_'
-by
-
----
 
 ==================================
 single defn block with no rules and no newline
@@ -220,68 +199,6 @@ by
           (string)
           (string)
           (string))))))
-
-=====================================================
-inline conclusion
-:error
-=====================================================
-defns
-typing :: 'ty_' ::=
-
-defn
-|- psi ::  :: psi_wf :: 'psi_wf_'
-by
-
----------------- :: Combo |- z1 o z2 ~ z3
----
-
-=====================================================
-rule_name on next line
-:error
-=====================================================
-defns
-typing :: 'ty_' ::=
-
-defn
-|- psi ::  :: psi_wf :: 'psi_wf_'
-by
-
----------------- ::
-Combo
-|- z1 o z2 ~ z3
----
-
-=====================================================
-double-colon on next line
-:error
-=====================================================
-defns
-typing :: 'ty_' ::=
-
-defn
-|- psi ::  :: psi_wf :: 'psi_wf_'
-by
-
-----------------|||
-:: Combo
-|- z1 o z2 ~ z3
----
-
-=====================================================
-multiple conclusions in one rule
-:error
-=====================================================
-defns
-typing :: 'ty_' ::=
-
-defn
-|- psi ::  :: psi_wf :: 'psi_wf_'
-by
-
----------------- :: Combo
-|- z1 o z2 ~ z3
-|- z1 < d z2
----
 
 =====================================================
 single defn block with one rule with one predicate
@@ -557,3 +474,87 @@ by
           (string)
           (string)
           (string))))))
+
+========================
+missing defnclass name
+:error
+========================
+defns
+:: 'ty_' ::=
+---
+
+==================================
+missing rule name
+:error
+==================================
+defns
+typing :: 'ty_' ::=
+
+defn
+GG |- x : t ~> X :: :: 'typing_'
+by
+
+---
+
+=====================================================
+inline conclusion
+:error
+=====================================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: psi_wf :: 'psi_wf_'
+by
+
+---------------- :: Combo |- z1 o z2 ~ z3
+---
+
+=====================================================
+rule_name on next line
+:error
+=====================================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: psi_wf :: 'psi_wf_'
+by
+
+---------------- ::
+Combo
+|- z1 o z2 ~ z3
+---
+
+=====================================================
+double-colon on next line
+:error
+=====================================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: psi_wf :: 'psi_wf_'
+by
+
+----------------|||
+:: Combo
+|- z1 o z2 ~ z3
+---
+
+=====================================================
+multiple conclusions in one rule
+:error
+=====================================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: psi_wf :: 'psi_wf_'
+by
+
+---------------- :: Combo
+|- z1 o z2 ~ z3
+|- z1 < d z2
+---
+

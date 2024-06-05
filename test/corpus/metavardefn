@@ -58,14 +58,6 @@ metavar a , b,c,d ::=
     (id_desc
       (id))))
 
-=========================
-invalid trailing comma
-:error
-=========================
-metavar a, b, ::=
-
----
-
 ============================
 string as homomorphism body
 ============================
@@ -99,22 +91,6 @@ metavar a {{tex \ell}}, b ::=
         (hom_body)))
     (id_desc
       (id))))
-
-============================
-string as homomorphism body with no closing brace
-:error
-============================
-metavar a {{tex \ell
-
----
-
-============================
-hom_name stuck to contents
-:error
-============================
-metavar a {{ tex[[gg]] }}
-
----
 
 ============================
 homInner as homomorphism body
@@ -176,3 +152,28 @@ metavar a {{ tex [[gg |- f]] }}, b ::=
             (string)))))
     (id_desc
       (id))))
+
+=========================
+invalid trailing comma
+:error
+=========================
+metavar a, b, ::=
+
+---
+
+============================
+string as homomorphism body with no closing brace
+:error
+============================
+metavar a {{tex \ell
+
+---
+
+============================
+hom_name stuck to contents
+:error
+============================
+metavar a {{ tex[[gg]] }}
+
+---
+
