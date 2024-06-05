@@ -3,10 +3,10 @@
 (defn_name) @function.method
 (rule_name) @property
 (namespace_prefix) @string
-(hom_name) @keyword
+(hom_name) @type
 (comment) @comment
 (production_name) @property
-(production_mod) @type
+(production_mod) @type.builtin
 
 [
  (dash_line)
