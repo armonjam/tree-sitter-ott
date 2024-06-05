@@ -22,7 +22,7 @@
               "type": "TOKEN",
               "content": {
                 "type": "PREC",
-                "value": 10,
+                "value": 1,
                 "content": {
                   "type": "STRING",
                   "value": "grammar"
@@ -45,7 +45,7 @@
               "type": "TOKEN",
               "content": {
                 "type": "PREC",
-                "value": 10,
+                "value": 1,
                 "content": {
                   "type": "STRING",
                   "value": "embed"
@@ -65,7 +65,7 @@
               "type": "TOKEN",
               "content": {
                 "type": "PREC",
-                "value": 10,
+                "value": 1,
                 "content": {
                   "type": "STRING",
                   "value": "defns"
@@ -147,7 +147,7 @@
           "type": "TOKEN",
           "content": {
             "type": "PREC",
-            "value": 10,
+            "value": 1,
             "content": {
               "type": "STRING",
               "value": "defn"
@@ -319,7 +319,7 @@
           "type": "TOKEN",
           "content": {
             "type": "PREC",
-            "value": 2,
+            "value": 1,
             "content": {
               "type": "STRING",
               "value": "----"

@@ -20,9 +20,9 @@ module.exports = grammar({
 
     _item: $ => choice(
       $.metavardefn,
-      seq(token(prec(10, 'grammar')), repeat($.grammar_rule)),
-      seq(token(prec(10, 'embed')), $.embed),
-      seq(token(prec(10, 'defns')), $.defnclass),
+      seq(token(prec(1, 'grammar')), repeat($.grammar_rule)),
+      seq(token(prec(1, 'embed')), $.embed),
+      seq(token(prec(1, 'defns')), $.defnclass),
       // TODO: ...
     ),
 
@@ -43,7 +43,7 @@ module.exports = grammar({
     defnclass_name: $ => alias($.id, 'defnclass_name'),
 
     defn: $ => seq(
-      token(prec(10, 'defn')),
+      token(prec(1, 'defn')),
       field('element', repeat($._element)),
       '::',
       // TODO: Use ids in between here like the spec
@@ -78,7 +78,7 @@ module.exports = grammar({
     rule_name: $ => alias($.id, 'rule_name'),
 
     dash_line: _ => seq(
-      token(prec(2, '----')),
+      token(prec(1, '----')),
       token.immediate(repeat('-')),
     ),
 
