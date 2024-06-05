@@ -178,7 +178,7 @@
   },
   {
     "type": "element",
-    "named": false,
+    "named": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -622,6 +622,10 @@
   },
   {
     "type": "indexvar",
+    "named": false
+  },
+  {
+    "type": "line_cont",
     "named": false
   },
   {

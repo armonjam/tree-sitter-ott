@@ -278,8 +278,16 @@
           }
         },
         {
+          "type": "SYMBOL",
+          "name": "_line_cont"
+        },
+        {
           "type": "STRING",
           "value": "::"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_line_cont"
         },
         {
           "type": "FIELD",
@@ -839,6 +847,15 @@
         }
       ]
     },
+    "_line_cont": {
+      "type": "ALIAS",
+      "content": {
+        "type": "SYMBOL",
+        "name": "line_cont"
+      },
+      "named": false,
+      "value": "line_cont"
+    },
     "_line_end": {
       "type": "ALIAS",
       "content": {
@@ -953,6 +970,10 @@
   "conflicts": [],
   "precedences": [],
   "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "line_cont"
+    },
     {
       "type": "SYMBOL",
       "name": "line_end"

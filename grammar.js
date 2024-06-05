@@ -4,6 +4,7 @@ module.exports = grammar({
   extras: $ => [/\s/, $.comment],
 
   externals: $ => [
+    $.line_cont,
     $.line_end,
     $.hom_string,
     $.hom_inner_string,
@@ -62,7 +63,9 @@ module.exports = grammar({
 
     rule_separator: $ => seq(
       field('line', $.dash_line),
+      $._line_cont,
       '::',
+      $._line_cont,
       field('rule_name', $.rule_name),
       $._line_end,
     ),
@@ -183,6 +186,7 @@ module.exports = grammar({
     // % other
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+    _line_cont: $ => alias($.line_cont, 'line_cont'),
     _line_end: $ => alias($.line_end, 'line_end'),
     _hom_string: $ => alias($.hom_string, 'hom_string'),
     _hom_inner_string: $ => alias($.hom_inner_string, 'hom_inner_string'),

@@ -2,6 +2,7 @@
 #include <ctype.h>
 
 enum TokenType {
+    LINE_CONT,
     LINE_END,
     HOM_STRING,
     HOM_INNER_STRING,
@@ -34,6 +35,18 @@ void tree_sitter_ott_external_scanner_deserialize(
     // NOTE: This function should restore the state
     // of the scanner based on the bytes that were previously
     // written by the serialize function.
+}
+
+bool scan_line_cont(TSLexer *lexer) {
+    while(
+        lexer->lookahead != '\n'
+        && isspace(lexer->lookahead)
+    ) {
+        lexer->advance(lexer, true);
+    }
+
+    if (lexer->lookahead == '\n') { return false; }
+    return true;
 }
 
 bool scan_line_end(TSLexer *lexer) {
@@ -111,6 +124,10 @@ bool tree_sitter_ott_external_scanner_scan(
     const bool *valid_symbols
 ) {
     if (valid_symbols[ERROR_SENTINEL]) { return false; }
+    if (valid_symbols[LINE_CONT]) {
+        lexer->result_symbol = LINE_CONT;
+        return scan_line_cont(lexer);
+    }
     if (valid_symbols[LINE_END]) {
         lexer->result_symbol = LINE_END;
         return scan_line_end(lexer);
