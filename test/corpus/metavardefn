@@ -107,6 +107,15 @@ string as homomorphism body with no closing brace
 metavar a {{tex \ell
 
 ---
+
+============================
+hom_name stuck to contents
+:error
+============================
+metavar a {{ tex[[gg]] }}
+
+---
+
 ============================
 homInner as homomorphism body
 ============================

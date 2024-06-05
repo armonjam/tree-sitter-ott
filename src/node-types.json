@@ -178,7 +178,7 @@
   },
   {
     "type": "element",
-    "named": true,
+    "named": false,
     "fields": {},
     "children": {
       "multiple": true,
@@ -562,6 +562,10 @@
   },
   {
     "type": "]]",
+    "named": false
+  },
+  {
+    "type": "_hom_name_space",
     "named": false
   },
   {

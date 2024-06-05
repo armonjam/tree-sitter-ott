@@ -94,6 +94,7 @@ module.exports = grammar({
     ),
 
     production: $ => seq(
+      // TODO: using bar `|` in  hom_inner causes it to be highlighted, which is undesirable.
       '|',
       field('element', repeat($.element)),
       '::',
@@ -155,6 +156,7 @@ module.exports = grammar({
     homomorphism: $ => seq(
       field('open', '{{'),
       field('name', $.hom_name),
+      alias(/\s+/, '_hom_name_space'),
       field('body', alias(repeat($._hom_element), $.hom_body)),
       field('close', '}}'),
     ),
@@ -171,9 +173,6 @@ module.exports = grammar({
     hom_inner_block: $ => seq("[[", $._hom_inner, "]]"),
 
     _hom_inner: $ => choice(
-      // NOTE: that _hom_inner_string is not required for all of these, just the ones
-      // that appear at the end of the rule. But to stay consistent we use it everywhere
-      // here.
       repeat1($._hom_inner_string),
       seq(repeat($._hom_inner_string), $.dots, repeat($._hom_inner_string)),
       seq('</', repeat($._hom_inner_string), '//', $.comprehension_bound, '/>'),

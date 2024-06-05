@@ -8,15 +8,6 @@ enum TokenType {
     ERROR_SENTINEL
 };
 
-uint8_t count_dots(TSLexer *lexer) {
-    int count = 0;
-    while(lexer->lookahead == '.') {
-        count += 1;
-        lexer->advance(lexer, false);
-    }
-    return count;
-}
-
 void *tree_sitter_ott_external_scanner_create(void) {
     return NULL;
 }

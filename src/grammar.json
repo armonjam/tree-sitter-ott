@@ -696,6 +696,15 @@
           }
         },
         {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "\\s+"
+          },
+          "named": false,
+          "value": "_hom_name_space"
+        },
+        {
           "type": "FIELD",
           "name": "body",
           "content": {
@@ -715,15 +724,8 @@
           "type": "FIELD",
           "name": "close",
           "content": {
-            "type": "TOKEN",
-            "content": {
-              "type": "PREC",
-              "value": 1,
-              "content": {
-                "type": "STRING",
-                "value": "}}"
-              }
-            }
+            "type": "STRING",
+            "value": "}}"
           }
         }
       ]
