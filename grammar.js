@@ -20,9 +20,9 @@ module.exports = grammar({
 
     _item: $ => choice(
       $.metavardefn,
-      seq(token(prec(1, 'grammar')), repeat($.grammar_rule)),
-      seq(token(prec(1, 'embed')), $.embed),
-      seq(token(prec(1, 'defns')), $.defnclass),
+      seq(token(prec(1, 'grammar')), $._whitespace, repeat($.grammar_rule)),
+      seq(token(prec(1, 'embed')), $._whitespace, $.embed),
+      seq(token(prec(1, 'defns')), $._whitespace, $.defnclass),
       // TODO: ...
     ),
 
@@ -44,6 +44,7 @@ module.exports = grammar({
 
     defn: $ => seq(
       token(prec(1, 'defn')),
+      $._whitespace,
       field('element', repeat($._element)),
       '::',
       // TODO: Use ids in between here like the spec
@@ -129,6 +130,7 @@ module.exports = grammar({
 
     metavardefn: $ => seq(
       choice('metavar', 'indexvar'),
+      $._whitespace,
       $._string_desc_list1,
       '::=',
       repeat($.homomorphism),
@@ -160,7 +162,7 @@ module.exports = grammar({
     homomorphism: $ => seq(
       field('open', '{{'),
       field('name', $.hom_name),
-      alias(/\s+/, '_hom_name_space'),
+      $._whitespace,
       field('body', alias(repeat($._hom_element), $.hom_body)),
       field('close', '}}'),
     ),
@@ -210,7 +212,7 @@ module.exports = grammar({
     id: _ => /[a-zA-Z\d_]+/,
     string: _ => /\S+/,
     comment: _ => /%.*/,
-
+    _whitespace: _ => /\s+/,
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     // % external aliases

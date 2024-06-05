@@ -30,6 +30,10 @@
               }
             },
             {
+              "type": "SYMBOL",
+              "name": "_whitespace"
+            },
+            {
               "type": "REPEAT",
               "content": {
                 "type": "SYMBOL",
@@ -54,6 +58,10 @@
             },
             {
               "type": "SYMBOL",
+              "name": "_whitespace"
+            },
+            {
+              "type": "SYMBOL",
               "name": "embed"
             }
           ]
@@ -71,6 +79,10 @@
                   "value": "defns"
                 }
               }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_whitespace"
             },
             {
               "type": "SYMBOL",
@@ -153,6 +165,10 @@
               "value": "defn"
             }
           }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_whitespace"
         },
         {
           "type": "FIELD",
@@ -560,6 +576,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "_whitespace"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_string_desc_list1"
         },
         {
@@ -648,13 +668,8 @@
           }
         },
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "PATTERN",
-            "value": "\\s+"
-          },
-          "named": false,
-          "value": "_hom_name_space"
+          "type": "SYMBOL",
+          "name": "_whitespace"
         },
         {
           "type": "FIELD",
@@ -917,6 +932,10 @@
     "comment": {
       "type": "PATTERN",
       "value": "%.*"
+    },
+    "_whitespace": {
+      "type": "PATTERN",
+      "value": "\\s+"
     },
     "_line_cont": {
       "type": "ALIAS",

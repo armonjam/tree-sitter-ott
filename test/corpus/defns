@@ -605,7 +605,6 @@ by
 ===================================
 inline defnclass without space
 :error
-:skip
 ===================================
 defnstyping :: 'ty_' ::=
 ---
@@ -613,7 +612,6 @@ defnstyping :: 'ty_' ::=
 =====================================================
 inline defn block without space
 :error
-:skip
 =====================================================
 defns
 typing :: 'ty_' ::=
