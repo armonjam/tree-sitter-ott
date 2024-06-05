@@ -39,7 +39,7 @@ module.exports = grammar({
 
     defn: $ => seq(
       token(prec(10, 'defn')),
-      field('element', repeat($.element)),
+      field('element', repeat($._element)),
       '::',
       // TODO: Use ids in between here like the spec
       '::',
@@ -78,7 +78,7 @@ module.exports = grammar({
     ),
 
     rule_line: $ => seq(
-      repeat1($.element),
+      repeat1($._element),
       $._line_end,
     ),
 
@@ -99,7 +99,7 @@ module.exports = grammar({
     production: $ => seq(
       // TODO: using bar `|` in  hom_inner causes it to be highlighted, which is undesirable.
       '|',
-      field('element', repeat($.element)),
+      field('element', repeat($._element)),
       '::',
       field('modifier', repeat($.production_mod)),
       '::',
@@ -111,11 +111,11 @@ module.exports = grammar({
     production_mod: $ => alias($.id, 'production_modifier'),
     production_name: $ => alias($.id, 'production_name'),
 
-    element: $ => choice(
-      alias($.string, 'symbol'),
+    _element: $ => choice(
+      $.string,
       $.dots,
-      seq('</', repeat($.element), '//', $.comprehension_bound, '/>'),
-      seq('</', repeat($.element), '//', $.string, '//', $.comprehension_bound, '/>'),
+      seq('</', repeat($._element), '//', $.comprehension_bound, '/>'),
+      seq('</', repeat($._element), '//', $.string, '//', $.comprehension_bound, '/>'),
     ),
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

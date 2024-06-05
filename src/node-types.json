@@ -52,7 +52,27 @@
         "required": false,
         "types": [
           {
-            "type": "element",
+            "type": "//",
+            "named": false
+          },
+          {
+            "type": "/>",
+            "named": false
+          },
+          {
+            "type": "</",
+            "named": false
+          },
+          {
+            "type": "comprehension_bound",
+            "named": true
+          },
+          {
+            "type": "dots",
+            "named": true
+          },
+          {
+            "type": "string",
             "named": true
           }
         ]
@@ -175,33 +195,6 @@
     "type": "dots",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "element",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "comprehension_bound",
-          "named": true
-        },
-        {
-          "type": "dots",
-          "named": true
-        },
-        {
-          "type": "element",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "embed",
@@ -402,7 +395,27 @@
         "required": false,
         "types": [
           {
-            "type": "element",
+            "type": "//",
+            "named": false
+          },
+          {
+            "type": "/>",
+            "named": false
+          },
+          {
+            "type": "</",
+            "named": false
+          },
+          {
+            "type": "comprehension_bound",
+            "named": true
+          },
+          {
+            "type": "dots",
+            "named": true
+          },
+          {
+            "type": "string",
             "named": true
           }
         ]
@@ -458,7 +471,15 @@
       "required": true,
       "types": [
         {
-          "type": "element",
+          "type": "comprehension_bound",
+          "named": true
+        },
+        {
+          "type": "dots",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -665,10 +686,6 @@
   {
     "type": "string",
     "named": true
-  },
-  {
-    "type": "symbol",
-    "named": false
   },
   {
     "type": "{{",

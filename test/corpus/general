@@ -11,6 +11,7 @@ type, t :: 'ty_' ::=
   | a                   ::  :: var
   | </ ti // -> // i /> ::  :: arrow
 ---
+
 (source_file
   (metavardefn
     (id_desc
@@ -34,14 +35,13 @@ type, t :: 'ty_' ::=
       (id))
     (namespace_prefix)
     (production
-      element: (element)
+      element: (string)
       production_name: (production_name))
     (production
-      element: (element
-        (element)
-        (string)
-        (comprehension_bound
-          (id)))
+      element: (string)
+      element: (string)
+      element: (comprehension_bound
+        (id))
       production_name: (production_name))))
 
 ===========================================
@@ -60,6 +60,7 @@ defns
 typing :: 'ty_' ::=
 
 ---
+
 (source_file
   (metavardefn
     (id_desc
@@ -83,14 +84,13 @@ typing :: 'ty_' ::=
       (id))
     (namespace_prefix)
     (production
-      element: (element)
+      element: (string)
       production_name: (production_name))
     (production
-      element: (element
-        (element)
-        (string)
-        (comprehension_bound
-          (id)))
+      element: (string)
+      element: (string)
+      element: (comprehension_bound
+        (id))
       production_name: (production_name)))
   (defnclass
     class_name: (defnclass_name)

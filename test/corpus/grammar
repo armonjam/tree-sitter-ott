@@ -38,7 +38,7 @@ term, M :: 'term_' ::=
       (id))
     (namespace_prefix)
     (production
-      element: (element)
+      element: (string)
       production_name: (production_name))))
 
 ===================
@@ -58,10 +58,9 @@ term, M :: 'term_' ::=
       (id))
     (namespace_prefix)
     (production
-      element: (element)
-      element: (element
-        (dots))
-      element: (element)
+      element: (string)
+      element: (dots)
+      element: (string)
       production_name: (production_name))))
 
 ===================
@@ -81,12 +80,11 @@ term, M :: 'term_' ::=
       (id))
     (namespace_prefix)
     (production
-      element: (element
-        (element)
-        (element)
-        (element)
-        (comprehension_bound
-          (id)))
+      element: (string)
+      element: (string)
+      element: (string)
+      element: (comprehension_bound
+        (id))
       production_name: (production_name))))
 
 ===================
@@ -106,13 +104,12 @@ term, M :: 'term_' ::=
       (id))
     (namespace_prefix)
     (production
-      element: (element
-        (element)
-        (element)
-        (element)
-        (comprehension_bound
-          (id)
-          (id)))
+      element: (string)
+      element: (string)
+      element: (string)
+      element: (comprehension_bound
+        (id)
+        (id))
       production_name: (production_name))))
 
 ===================
@@ -132,15 +129,14 @@ term, M :: 'term_' ::=
       (id))
     (namespace_prefix)
     (production
-      element: (element
-        (element)
-        (element)
-        (element)
-        (comprehension_bound
-          (id)
-          (id)
-          (dots)
-          (id)))
+      element: (string)
+      element: (string)
+      element: (string)
+      element: (comprehension_bound
+        (id)
+        (id)
+        (dots)
+        (id))
       production_name: (production_name))))
 
 ===================
@@ -158,7 +154,7 @@ grammar term, M :: 'term_' ::=
       (id))
     (namespace_prefix)
     (production
-      element: (element)
+      element: (string)
       production_name: (production_name))))
 
 ===================
@@ -176,7 +172,7 @@ grammar term, M :: 'term_' ::=
       (id))
     (namespace_prefix)
     (production
-      element: (element)
+      element: (string)
       modifier: (production_mod)
       production_name: (production_name))))
 
@@ -197,13 +193,13 @@ term, M :: 'term_' ::=
       (id))
     (namespace_prefix)
     (production
-      element: (element)
+      element: (string)
       production_name: (production_name))
     (production
-      element: (element)
-      element: (element)
-      element: (element)
-      element: (element)
+      element: (string)
+      element: (string)
+      element: (string)
+      element: (string)
       production_name: (production_name))))
 
 ======================
@@ -223,7 +219,7 @@ term, M :: 'term_' ::=
       (id))
     (namespace_prefix)
     (production
-      element: (element)
+      element: (string)
       production_name: (production_name)
       homomorphism: (homomorphism
         name: (hom_name)
@@ -231,10 +227,10 @@ term, M :: 'term_' ::=
           hom_inner_block: (hom_inner_block
             (string)))))
     (production
-      element: (element)
-      element: (element)
-      element: (element)
-      element: (element)
+      element: (string)
+      element: (string)
+      element: (string)
+      element: (string)
       production_name: (production_name)
       homomorphism: (homomorphism
         name: (hom_name)
@@ -262,7 +258,7 @@ type, t :: 'ty_' ::=
       (id))
     (namespace_prefix)
     (production
-      element: (element)
+      element: (string)
       production_name: (production_name)))
   (grammar_rule
     (id_desc
@@ -271,5 +267,5 @@ type, t :: 'ty_' ::=
       (id))
     (namespace_prefix)
     (production
-      element: (element)
+      element: (string)
       production_name: (production_name))))
