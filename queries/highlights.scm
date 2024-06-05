@@ -1,4 +1,4 @@
-(string) @variable
+(string) @type
 (defnclass_name) @function
 (defn_name) @function.method
 (rule_name) @property

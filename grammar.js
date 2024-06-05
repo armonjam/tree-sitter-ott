@@ -78,7 +78,7 @@ module.exports = grammar({
     ),
 
     rule_line: $ => seq(
-      repeat1(alias($.element, 'element')),
+      repeat1($.element),
       $._line_end,
     ),
 
@@ -189,7 +189,7 @@ module.exports = grammar({
     _line_cont: $ => alias($.line_cont, 'line_cont'),
     _line_end: $ => alias($.line_end, 'line_end'),
     _hom_string: $ => alias($.hom_string, 'hom_string'),
-    _hom_inner_string: $ => alias($.hom_inner_string, 'hom_inner_string'),
+    _hom_inner_string: $ => alias($.hom_inner_string, $.string),
     comment: _ => /%.*/,
     dots: _ => choice(
       '..',
@@ -202,8 +202,6 @@ module.exports = grammar({
     ),
     // TODO: change to use allowed range of identifiers
     id: _ => /[a-zA-Z\d_]+/,
-    // TODO: I think `string` conflicts with stuff in queries/highlights.scm
-    // so we might wanna change the name here.
     string: _ => /\S+/,
   }
 });

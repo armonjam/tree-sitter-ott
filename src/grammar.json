@@ -344,13 +344,8 @@
         {
           "type": "REPEAT1",
           "content": {
-            "type": "ALIAS",
-            "content": {
-              "type": "SYMBOL",
-              "name": "element"
-            },
-            "named": false,
-            "value": "element"
+            "type": "SYMBOL",
+            "name": "element"
           }
         },
         {
@@ -880,8 +875,8 @@
         "type": "SYMBOL",
         "name": "hom_inner_string"
       },
-      "named": false,
-      "value": "hom_inner_string"
+      "named": true,
+      "value": "string"
     },
     "comment": {
       "type": "PATTERN",

@@ -228,7 +228,8 @@ term, M :: 'term_' ::=
       homomorphism: (homomorphism
         name: (hom_name)
         body: (hom_body
-          hom_inner_block: (hom_inner_block))))
+          hom_inner_block: (hom_inner_block
+            (string)))))
     (production
       element: (element)
       element: (element)
@@ -238,8 +239,10 @@ term, M :: 'term_' ::=
       homomorphism: (homomorphism
         name: (hom_name)
         body: (hom_body
-          hom_inner_block: (hom_inner_block)
-          hom_inner_block: (hom_inner_block))))))
+          hom_inner_block: (hom_inner_block
+            (string))
+          hom_inner_block: (hom_inner_block
+            (string)))))))
 
 ===================
 multiple grammar blocks

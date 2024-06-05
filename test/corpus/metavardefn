@@ -130,7 +130,8 @@ metavar a {{ tex [[gg]] }}, b ::=
       (homomorphism
         (hom_name)
         (hom_body
-          (hom_inner_block))))
+          (hom_inner_block
+            (string)))))
     (id_desc
       (id))))
 
@@ -147,7 +148,8 @@ metavar a {{ tex [[gg]] }}, b {{ tex \normalcolor }}::=
       (homomorphism
         (hom_name)
         (hom_body
-          (hom_inner_block))))
+          (hom_inner_block
+            (string)))))
     (id_desc
       (id)
       (homomorphism
@@ -168,6 +170,9 @@ metavar a {{ tex [[gg |- f]] }}, b ::=
       (homomorphism
         (hom_name)
         (hom_body
-          (hom_inner_block))))
+          (hom_inner_block
+            (string)
+            (string)
+            (string)))))
     (id_desc
       (id))))

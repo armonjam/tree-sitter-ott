@@ -29,6 +29,7 @@ GG |- x : t ~> X :: :: test :: 'typing_'
 by
 
 ---
+
 (source_file
   (defnclass
     class_name: (defnclass_name)
@@ -67,6 +68,7 @@ defn
 GG |- x : t ~> X :: :: test :: 'typing_'
 by
 ---
+
 (source_file
   (defnclass
     class_name: (defnclass_name)
@@ -106,8 +108,10 @@ by
       homomorphism: (homomorphism
         name: (hom_name)
         body: (hom_body
-          hom_inner_block: (hom_inner_block)
-          hom_inner_block: (hom_inner_block))))))
+          hom_inner_block: (hom_inner_block
+            (string))
+          hom_inner_block: (hom_inner_block
+            (string)))))))
 
 =====================================================
 single defn block with one rule with no predicates
@@ -137,7 +141,13 @@ by
         separator: (rule_separator
           line: (dash_line)
           rule_name: (rule_name))
-        conclusion: (rule_line)))))
+        conclusion: (rule_line
+          (element)
+          (element)
+          (element)
+          (element)
+          (element)
+          (element))))))
 
 =====================================================
 no blank line after last rule
@@ -166,7 +176,13 @@ by
         separator: (rule_separator
           line: (dash_line)
           rule_name: (rule_name))
-        conclusion: (rule_line)))))
+        conclusion: (rule_line
+          (element)
+          (element)
+          (element)
+          (element)
+          (element)
+          (element))))))
 
 =====================================================
 multiple newlines after last rule
@@ -197,7 +213,13 @@ by
         separator: (rule_separator
           line: (dash_line)
           rule_name: (rule_name))
-        conclusion: (rule_line)))))
+        conclusion: (rule_line
+          (element)
+          (element)
+          (element)
+          (element)
+          (element)
+          (element))))))
 
 =====================================================
 inline conclusion
@@ -287,11 +309,20 @@ gg |- z3
       definition_name: (defn_name)
       namespace_prefix: (namespace_prefix)
       definition_rule: (defn_rule
-        premise: (rule_line)
+        premise: (rule_line
+          (element)
+          (element)
+          (element))
         separator: (rule_separator
           line: (dash_line)
           rule_name: (rule_name))
-        conclusion: (rule_line)))))
+        conclusion: (rule_line
+          (element)
+          (element)
+          (element)
+          (element)
+          (element)
+          (element))))))
 
 =========================================================
 single defn block with one rule with multiple predicates
@@ -321,13 +352,28 @@ gg |- z3
       definition_name: (defn_name)
       namespace_prefix: (namespace_prefix)
       definition_rule: (defn_rule
-        premise: (rule_line)
-        premise: (rule_line)
-        premise: (rule_line)
+        premise: (rule_line
+          (element)
+          (element)
+          (element))
+        premise: (rule_line
+          (element)
+          (element)
+          (element))
+        premise: (rule_line
+          (element)
+          (element)
+          (element))
         separator: (rule_separator
           line: (dash_line)
           rule_name: (rule_name))
-        conclusion: (rule_line)))))
+        conclusion: (rule_line
+          (element)
+          (element)
+          (element)
+          (element)
+          (element)
+          (element))))))
 
 =====================================================
 multiple rules in a single defn block
@@ -362,13 +408,26 @@ by
         separator: (rule_separator
           line: (dash_line)
           rule_name: (rule_name))
-        conclusion: (rule_line))
+        conclusion: (rule_line
+          (element)
+          (element)
+          (element)
+          (element)
+          (element)
+          (element)))
       definition_rule: (defn_rule
-        premise: (rule_line)
+        premise: (rule_line
+          (element)
+          (element))
         separator: (rule_separator
           line: (dash_line)
           rule_name: (rule_name))
-        conclusion: (rule_line)))))
+        conclusion: (rule_line
+          (element)
+          (element)
+          (element)
+          (element)
+          (element))))))
 
 =====================================================
 multiple defn blocks in a single defnclass
@@ -407,7 +466,13 @@ by
         separator: (rule_separator
           line: (dash_line)
           rule_name: (rule_name))
-        conclusion: (rule_line)))
+        conclusion: (rule_line
+          (element)
+          (element)
+          (element)
+          (element)
+          (element)
+          (element))))
     definition: (defn
       element: (element)
       element: (element)
@@ -415,11 +480,17 @@ by
       definition_name: (defn_name)
       namespace_prefix: (namespace_prefix)
       definition_rule: (defn_rule
-        premise: (rule_line)
+        premise: (rule_line
+          (element)
+          (element))
         separator: (rule_separator
           line: (dash_line)
           rule_name: (rule_name))
-        conclusion: (rule_line)))))
+        conclusion: (rule_line
+          (element)
+          (element)
+          (element)
+          (element))))))
 
 =====================================================
 multiple defnclasses
@@ -459,7 +530,13 @@ by
         separator: (rule_separator
           line: (dash_line)
           rule_name: (rule_name))
-        conclusion: (rule_line))))
+        conclusion: (rule_line
+          (element)
+          (element)
+          (element)
+          (element)
+          (element)
+          (element)))))
   (defnclass
     class_name: (defnclass_name)
     namespace_prefix: (namespace_prefix)
@@ -475,4 +552,8 @@ by
         separator: (rule_separator
           line: (dash_line)
           rule_name: (rule_name))
-        conclusion: (rule_line)))))
+        conclusion: (rule_line
+          (element)
+          (element)
+          (element)
+          (element))))))
