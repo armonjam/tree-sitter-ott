@@ -76,7 +76,7 @@ term, M :: 'term_' ::=
       element: (string)
       element: (string)
       element: (comprehension_bound
-        (id))
+        (string))
       production_name: (production_name))))
 
 ===================
@@ -100,8 +100,8 @@ term, M :: 'term_' ::=
       element: (string)
       element: (string)
       element: (comprehension_bound
-        (id)
-        (id))
+        (string)
+        (string))
       production_name: (production_name))))
 
 ===================
@@ -125,10 +125,10 @@ term, M :: 'term_' ::=
       element: (string)
       element: (string)
       element: (comprehension_bound
-        (id)
-        (id)
+        (string)
+        (string)
         (dots)
-        (id))
+        (string))
       production_name: (production_name))))
 
 ===================

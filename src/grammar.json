@@ -450,8 +450,8 @@
     "production_mod": {
       "type": "ALIAS",
       "content": {
-        "type": "SYMBOL",
-        "name": "id"
+        "type": "PATTERN",
+        "value": "[a-zA-Z\\d_]+"
       },
       "named": false,
       "value": "production_modifier"
@@ -832,7 +832,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "id"
+          "name": "_comprehension_string"
         },
         {
           "type": "CHOICE",
@@ -846,7 +846,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "id"
+                  "name": "_comprehension_string"
                 },
                 {
                   "type": "CHOICE",
@@ -860,7 +860,7 @@
                         },
                         {
                           "type": "SYMBOL",
-                          "name": "id"
+                          "name": "_comprehension_string"
                         }
                       ]
                     },
@@ -877,6 +877,15 @@
           ]
         }
       ]
+    },
+    "_comprehension_string": {
+      "type": "ALIAS",
+      "content": {
+        "type": "PATTERN",
+        "value": "[a-zA-Z\\d_]+"
+      },
+      "named": true,
+      "value": "string"
     },
     "comment": {
       "type": "PATTERN",
@@ -903,13 +912,8 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "id"
-          },
-          "named": false,
-          "value": "id"
+          "type": "SYMBOL",
+          "name": "_namespace_prefix_string"
         },
         {
           "type": "SEQ",
@@ -922,13 +926,8 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "id"
-                  },
-                  "named": false,
-                  "value": "q_id"
+                  "type": "SYMBOL",
+                  "name": "_namespace_prefix_string"
                 },
                 {
                   "type": "BLANK"
@@ -942,6 +941,10 @@
           ]
         }
       ]
+    },
+    "_namespace_prefix_string": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z\\d_\\-]+"
     },
     "id": {
       "type": "PATTERN",

@@ -12,7 +12,7 @@
           "named": true
         },
         {
-          "type": "id",
+          "type": "string",
           "named": true
         }
       ]
@@ -344,11 +344,6 @@
     }
   },
   {
-    "type": "id",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "metavardefn",
     "named": true,
     "fields": {},
@@ -444,18 +439,8 @@
     "fields": {}
   },
   {
-    "type": "production_modifier",
-    "named": false,
-    "fields": {}
-  },
-  {
     "type": "production_name",
     "named": true,
-    "fields": {}
-  },
-  {
-    "type": "q_id",
-    "named": false,
     "fields": {}
   },
   {
@@ -664,6 +649,10 @@
   },
   {
     "type": "metavar",
+    "named": false
+  },
+  {
+    "type": "production_modifier",
     "named": false
   },
   {

@@ -108,7 +108,7 @@ module.exports = grammar({
       field('homomorphism', repeat($.homomorphism)),
     ),
 
-    production_mod: $ => alias($.id, 'production_modifier'),
+    production_mod: $ => alias(/[a-zA-Z\d_]+/, 'production_modifier'),
     production_name: $ => alias($.id, 'production_name'),
 
     _element: $ => choice(
@@ -187,8 +187,9 @@ module.exports = grammar({
     _hom_inner_string: $ => alias($.hom_inner_string, $.string),
 
     comprehension_bound: $ =>
-      // TODO: are `id`s okay here?
-      seq($.id, optional(seq('IN', $.id, optional(seq($.dots, $.id)))),),
+      seq($._comprehension_string, optional(seq('IN', $._comprehension_string, optional(seq($.dots, $._comprehension_string)))),),
+    _comprehension_string: $ => alias(/[a-zA-Z\d_]+/, $.string),
+
     comment: _ => /%.*/,
     dots: _ => choice(
       '..',
@@ -196,9 +197,10 @@ module.exports = grammar({
       '....',
     ),
     namespace_prefix: $ => choice(
-      alias($.id, 'id'),
-      seq("\'", optional(alias($.id, 'q_id')), "\'"),
+      $._namespace_prefix_string,
+      seq("\'", optional($._namespace_prefix_string), "\'"),
     ),
+    _namespace_prefix_string: _ => /[a-zA-Z\d_\-]+/,
     // TODO: change to use allowed range of identifiers
     id: _ => /[a-zA-Z\d_]+/,
     string: _ => /\S+/,

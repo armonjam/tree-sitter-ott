@@ -41,7 +41,7 @@ type, t :: 'ty_' ::=
       element: (string)
       element: (string)
       element: (comprehension_bound
-        (id))
+        (string))
       production_name: (production_name))))
 
 ===========================================
@@ -90,7 +90,7 @@ typing :: 'ty_' ::=
       element: (string)
       element: (string)
       element: (comprehension_bound
-        (id))
+        (string))
       production_name: (production_name)))
   (defnclass
     class_name: (defnclass_name)

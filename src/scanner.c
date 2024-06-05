@@ -37,7 +37,7 @@ void tree_sitter_ott_external_scanner_deserialize(
     // written by the serialize function.
 }
 
-bool scan_line_cont(TSLexer *lexer) {
+static bool scan_line_cont(TSLexer *lexer) {
     while(
         lexer->lookahead != '\n'
         && isspace(lexer->lookahead)
@@ -49,7 +49,7 @@ bool scan_line_cont(TSLexer *lexer) {
     return true;
 }
 
-bool scan_line_end(TSLexer *lexer) {
+static bool scan_line_end(TSLexer *lexer) {
     if (lexer->lookahead == '\n') {
         lexer->advance(lexer, false);
         return true;
@@ -57,7 +57,7 @@ bool scan_line_end(TSLexer *lexer) {
     return lexer->eof(lexer);
 }
 
-bool scan_hom_string(TSLexer *lexer, bool is_empty) {
+static bool scan_hom_string(TSLexer *lexer, bool is_empty) {
     while (
         lexer->lookahead != '}'
         && lexer->lookahead != '['
@@ -85,7 +85,7 @@ bool scan_hom_string(TSLexer *lexer, bool is_empty) {
     return scan_hom_string(lexer, false);
 }
 
-bool scan_hom_inner_string(TSLexer *lexer, bool is_empty) {
+static bool scan_hom_inner_string(TSLexer *lexer, bool is_empty) {
     // skip whitespace
     while (is_empty && isspace(lexer->lookahead)) {
         lexer->advance(lexer, true);
