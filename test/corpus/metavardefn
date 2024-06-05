@@ -177,3 +177,12 @@ metavar a {{ tex[[gg]] }}
 
 ---
 
+===============================
+metavar keyword stuck to string
+:error
+:skip
+===============================
+metavarbeta ::=
+
+---
+
