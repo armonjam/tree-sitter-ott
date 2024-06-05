@@ -791,42 +791,6 @@
         }
       ]
     },
-    "_line_cont": {
-      "type": "ALIAS",
-      "content": {
-        "type": "SYMBOL",
-        "name": "line_cont"
-      },
-      "named": false,
-      "value": "line_cont"
-    },
-    "_line_end": {
-      "type": "ALIAS",
-      "content": {
-        "type": "SYMBOL",
-        "name": "line_end"
-      },
-      "named": false,
-      "value": "line_end"
-    },
-    "_hom_string": {
-      "type": "ALIAS",
-      "content": {
-        "type": "SYMBOL",
-        "name": "hom_string"
-      },
-      "named": false,
-      "value": "hom_string"
-    },
-    "_hom_inner_string": {
-      "type": "ALIAS",
-      "content": {
-        "type": "SYMBOL",
-        "name": "hom_inner_string"
-      },
-      "named": true,
-      "value": "string"
-    },
     "comprehension_bound": {
       "type": "SEQ",
       "members": [
@@ -887,27 +851,6 @@
       "named": true,
       "value": "string"
     },
-    "comment": {
-      "type": "PATTERN",
-      "value": "%.*"
-    },
-    "dots": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": ".."
-        },
-        {
-          "type": "STRING",
-          "value": "..."
-        },
-        {
-          "type": "STRING",
-          "value": "...."
-        }
-      ]
-    },
     "namespace_prefix": {
       "type": "CHOICE",
       "members": [
@@ -946,6 +889,23 @@
       "type": "PATTERN",
       "value": "[a-zA-Z\\d_\\-]+"
     },
+    "dots": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ".."
+        },
+        {
+          "type": "STRING",
+          "value": "..."
+        },
+        {
+          "type": "STRING",
+          "value": "...."
+        }
+      ]
+    },
     "id": {
       "type": "PATTERN",
       "value": "[a-zA-Z\\d_]+"
@@ -953,6 +913,46 @@
     "string": {
       "type": "PATTERN",
       "value": "\\S+"
+    },
+    "comment": {
+      "type": "PATTERN",
+      "value": "%.*"
+    },
+    "_line_cont": {
+      "type": "ALIAS",
+      "content": {
+        "type": "SYMBOL",
+        "name": "line_cont"
+      },
+      "named": false,
+      "value": "line_cont"
+    },
+    "_line_end": {
+      "type": "ALIAS",
+      "content": {
+        "type": "SYMBOL",
+        "name": "line_end"
+      },
+      "named": false,
+      "value": "line_end"
+    },
+    "_hom_string": {
+      "type": "ALIAS",
+      "content": {
+        "type": "SYMBOL",
+        "name": "hom_string"
+      },
+      "named": false,
+      "value": "hom_string"
+    },
+    "_hom_inner_string": {
+      "type": "ALIAS",
+      "content": {
+        "type": "SYMBOL",
+        "name": "hom_inner_string"
+      },
+      "named": true,
+      "value": "string"
     }
   },
   "extras": [

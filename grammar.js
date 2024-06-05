@@ -12,6 +12,10 @@ module.exports = grammar({
   ],
 
   rules: {
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    // % main
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
     source_file: $ => repeat($._item),
 
     _item: $ => choice(
@@ -22,9 +26,10 @@ module.exports = grammar({
       // TODO: ...
     ),
 
-    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    // % defnclass
-    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    // % definition class
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     defnclass: $ => seq(
       field('class_name', $.defnclass_name),
@@ -83,9 +88,9 @@ module.exports = grammar({
     ),
 
 
-    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    // % grammar_rule
-    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    // % grammar rule
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     grammar_rule: $ => seq(
       $._string_desc_list1,
@@ -108,7 +113,7 @@ module.exports = grammar({
       field('homomorphism', repeat($.homomorphism)),
     ),
 
-    production_mod: $ => alias(/[a-zA-Z\d_]+/, 'production_modifier'),
+    production_mod: _ => alias(/[a-zA-Z\d_]+/, 'production_modifier'),
     production_name: $ => alias($.id, 'production_name'),
 
     _element: $ => choice(
@@ -118,9 +123,9 @@ module.exports = grammar({
       seq('</', repeat($._element), '//', $.string, '//', $.comprehension_bound, '/>'),
     ),
 
-    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    // % metavardefn
-    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    // % metavariable definition
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     metavardefn: $ => seq(
       choice('metavar', 'indexvar'),
@@ -129,9 +134,10 @@ module.exports = grammar({
       repeat($.homomorphism),
     ),
 
-    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    // % string_desc_list
-    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    // % string with homomorphism description
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     _string_desc_list1: $ => seq(
       $.string_desc,
@@ -178,31 +184,41 @@ module.exports = grammar({
 
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    // % other
+    // % comprehension bound
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    comprehension_bound: $ =>
+      seq($._comprehension_string, optional(seq('IN', $._comprehension_string, optional(seq($.dots, $._comprehension_string)))),),
+    _comprehension_string: $ => alias(/[a-zA-Z\d_]+/, $.string),
+
+
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    // % tokens
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    namespace_prefix: $ => choice(
+      $._namespace_prefix_string,
+      seq("\'", optional($._namespace_prefix_string), "\'"),
+    ),
+    _namespace_prefix_string: _ => /[a-zA-Z\d_\-]+/,
+    dots: _ => choice(
+      '..',
+      '...',
+      '....',
+    ),
+    // TODO: change to use allowed range of identifiers
+    id: _ => /[a-zA-Z\d_]+/,
+    string: _ => /\S+/,
+    comment: _ => /%.*/,
+
+
+    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    // % external aliases
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     _line_cont: $ => alias($.line_cont, 'line_cont'),
     _line_end: $ => alias($.line_end, 'line_end'),
     _hom_string: $ => alias($.hom_string, 'hom_string'),
     _hom_inner_string: $ => alias($.hom_inner_string, $.string),
-
-    comprehension_bound: $ =>
-      seq($._comprehension_string, optional(seq('IN', $._comprehension_string, optional(seq($.dots, $._comprehension_string)))),),
-    _comprehension_string: $ => alias(/[a-zA-Z\d_]+/, $.string),
-
-    comment: _ => /%.*/,
-    dots: _ => choice(
-      '..',
-      '...',
-      '....',
-    ),
-    namespace_prefix: $ => choice(
-      $._namespace_prefix_string,
-      seq("\'", optional($._namespace_prefix_string), "\'"),
-    ),
-    _namespace_prefix_string: _ => /[a-zA-Z\d_\-]+/,
-    // TODO: change to use allowed range of identifiers
-    id: _ => /[a-zA-Z\d_]+/,
-    string: _ => /\S+/,
   }
 });
