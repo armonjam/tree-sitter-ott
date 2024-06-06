@@ -7,7 +7,10 @@ module.exports = grammar({
     $.line_cont,
     $.line_end,
     $.hom_string,
-    $.hom_inner_string,
+    $.hom_inner_string_init,
+    $.hom_inner_string_left,
+    $.hom_inner_string_right,
+    $.hom_inner_comp_left,
     $.error_sentinel,
   ],
 
@@ -179,9 +182,8 @@ module.exports = grammar({
     hom_inner_block: $ => seq("[[", $._hom_inner, "]]"),
 
     _hom_inner: $ => choice(
-      repeat1($._hom_inner_string),
-      seq(repeat($._hom_inner_string), $.dots, repeat($._hom_inner_string)),
-      seq('</', repeat($._hom_inner_string), '//', $.comprehension_bound, '/>'),
+      seq($._hom_inner_string_init, repeat($._hom_inner_string_left), optional(seq($.dots, repeat1($._hom_inner_string_right)))),
+      seq('</', repeat($._hom_inner_comp_left), '//', $.comprehension_bound, '/>'),
     ),
 
 
@@ -221,6 +223,9 @@ module.exports = grammar({
     _line_cont: $ => alias($.line_cont, 'line_cont'),
     _line_end: $ => alias($.line_end, 'line_end'),
     _hom_string: $ => alias($.hom_string, 'hom_string'),
-    _hom_inner_string: $ => alias($.hom_inner_string, $.string),
+    _hom_inner_string_init: $ => alias($.hom_inner_string_init, $.string),
+    _hom_inner_string_left: $ => alias($.hom_inner_string_left, $.string),
+    _hom_inner_string_right: $ => alias($.hom_inner_string_right, $.string),
+    _hom_inner_comp_left: $ => alias($.hom_inner_comp_left, $.string),
   }
 });
