@@ -640,10 +640,6 @@
     "named": false
   },
   {
-    "type": "line_end",
-    "named": false
-  },
-  {
     "type": "metavar",
     "named": false
   },

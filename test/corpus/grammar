@@ -232,6 +232,35 @@ term, M :: 'term_' ::=
           hom_inner_block: (hom_inner_block
             (string)))))))
 
+======================
+angle bracket before closing square bracket
+======================
+grammar
+term, M :: 'term_' ::=
+  | r1 ~< mu r2       ::  :: row_sub {{ tex [[r1]] [[~<]]_{[[mu]]} [[r2]] }}
+---
+
+(source_file
+  (grammar_rule
+    (string_desc
+      (string))
+    (string_desc
+      (string))
+    (namespace_prefix)
+    (production
+      element: (string)
+      element: (string)
+      element: (string)
+      element: (string)
+      production_name: (production_name)
+      homomorphism: (homomorphism
+        name: (hom_name)
+        body: (hom_body
+          hom_inner_block: (hom_inner_block (string))
+          hom_inner_block: (hom_inner_block (string))
+          hom_inner_block: (hom_inner_block (string))
+          hom_inner_block: (hom_inner_block (string)))))))
+
 ===================
 multiple grammar blocks
 ===================

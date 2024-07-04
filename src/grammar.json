@@ -936,8 +936,15 @@
       "value": "[a-zA-Z\\d_]+"
     },
     "comment": {
-      "type": "PATTERN",
-      "value": "%.*"
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 100,
+        "content": {
+          "type": "PATTERN",
+          "value": "%.*"
+        }
+      }
     },
     "string": {
       "type": "PATTERN",
@@ -957,13 +964,17 @@
       "value": "line_cont"
     },
     "_line_end": {
-      "type": "ALIAS",
-      "content": {
-        "type": "SYMBOL",
-        "name": "line_end"
-      },
-      "named": false,
-      "value": "line_end"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\s*(\\r?\\n)"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_eof"
+        }
+      ]
     },
     "_hom_string": {
       "type": "ALIAS",
@@ -1030,7 +1041,7 @@
     },
     {
       "type": "SYMBOL",
-      "name": "line_end"
+      "name": "_eof"
     },
     {
       "type": "SYMBOL",

@@ -285,6 +285,47 @@ gg |- z3
           (string)
           (string))))))
 
+===========================================
+whitespace after last element of predicate
+===========================================
+defns
+typing :: 'ty_' ::=
+
+defn
+|- psi ::  :: psi_wf :: 'psi_wf_'
+by
+
+gg |- z3 
+---------------- :: Combo
+|- z1 o z2 ~ z3
+
+---
+
+(source_file
+  (defnclass
+    class_name: (defnclass_name)
+    namespace_prefix: (namespace_prefix)
+    definition: (defn
+      element: (string)
+      element: (string)
+      definition_name: (defn_name)
+      namespace_prefix: (namespace_prefix)
+      definition_rule: (defn_rule
+        premise: (rule_line
+          (string)
+          (string)
+          (string))
+        separator: (rule_separator
+          line: (dash_line)
+          rule_name: (rule_name))
+        conclusion: (rule_line
+          (string)
+          (string)
+          (string)
+          (string)
+          (string)
+          (string))))))
+
 =========================================================
 single defn block with one rule with multiple predicates
 =========================================================

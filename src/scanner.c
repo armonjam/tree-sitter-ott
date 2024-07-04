@@ -3,7 +3,7 @@
 
 enum TokenType {
     LINE_CONT,
-    LINE_END,
+    EOF,
     HOM_STRING,
     HOM_INNER_STRING_INIT,
     HOM_INNER_STRING_LEFT,
@@ -66,11 +66,7 @@ static bool scan_line_cont(TSLexer *lexer) {
     return true;
 }
 
-static bool scan_line_end(TSLexer *lexer) {
-    if (lexer->lookahead == '\n') {
-        lexer->advance(lexer, false);
-        return true;
-    }
+static bool scan_eof(TSLexer *lexer) {
     return lexer->eof(lexer);
 }
 
@@ -180,9 +176,9 @@ bool tree_sitter_ott_external_scanner_scan(
         lexer->result_symbol = LINE_CONT;
         return scan_line_cont(lexer);
     }
-    if (valid_symbols[LINE_END]) {
-        lexer->result_symbol = LINE_END;
-        return scan_line_end(lexer);
+    if (valid_symbols[EOF]) {
+        lexer->result_symbol = EOF;
+        return scan_eof(lexer);
     }
     if (valid_symbols[HOM_STRING]) {
         lexer->result_symbol = HOM_STRING;

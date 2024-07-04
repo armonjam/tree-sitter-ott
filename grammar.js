@@ -5,7 +5,7 @@ module.exports = grammar({
 
   externals: $ => [
     $.line_cont,
-    $.line_end,
+    $._eof,
     $.hom_string,
     $.hom_inner_string_init,
     $.hom_inner_string_left,
@@ -221,7 +221,7 @@ module.exports = grammar({
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     _line_cont: $ => alias($.line_cont, 'line_cont'),
-    _line_end: $ => alias($.line_end, 'line_end'),
+    _line_end: $ => choice(/\s*(\r?\n)/, $._eof),
     _hom_string: $ => alias($.hom_string, 'hom_string'),
     _hom_inner_string_init: $ => alias($.hom_inner_string_init, $.string),
     _hom_inner_string_left: $ => alias($.hom_inner_string_left, $.string),
