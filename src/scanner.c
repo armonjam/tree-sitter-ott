@@ -73,11 +73,13 @@ static bool scan_eof(TSLexer *lexer) {
 static bool _advance_if_any_valid(
     TSLexer *lexer,
     int array_size,
-    const bool array[array_size]
+    const bool array[array_size],
+    bool *did_something
 ) {
     for (int i = 0; i < array_size; ++i) {
         if (array[i]) {
             lexer->advance(lexer, false);
+            *did_something = true;
             return true;
         }
     }
@@ -113,16 +115,32 @@ static bool _is_delim_matched(
     return false;
 }
 
-static bool _try_match(
+enum TryMatchResult {
+    DID_NOTHING,
+    ADVANCED_BUT_FAILED,
+    FOUND_MATCH,
+};
+static enum TryMatchResult _try_match(
     TSLexer *lexer,
     int num_delims,
     delim_exp delims[num_delims]
 ) {
+    // TODO: so here is the issue,
+    // suppose you do a first pass, find that there is no closing square bracket,
+    // `]`, and so you eliminate it as a possible match. But, you see a `<` angle
+    // bracket, so you keep it as valid. Then the next time around, you find that
+    // the next character is `]`. So the `</` match fails and the function returns
+    // cause no other possible match exists. But now the lexer is at <, with its
+    // lookahead set to ]. The try_match returns false, and the string parser
+    // advances. But this means that the current character is now `]`, so the
+    // possibility of matching a `]]` double closing bracket with this `]` is
+    // not an option anymore!
     bool valid_delims[num_delims];
     for (int i = 0; i < num_delims; ++i) {
         valid_delims[i] = true;
     }
 
+    bool did_something = false;
     int match_id = 0;
     do {
         for (int delim_id = 0; delim_id < num_delims; ++delim_id) {
@@ -133,13 +151,16 @@ static bool _try_match(
                 valid_delims[delim_id] = false;
             }
             if (_is_delim_matched(lexer, delims[delim_id], match_id, valid_delims[delim_id])) {
-                return true;
+                return FOUND_MATCH;
             }
         }
         ++match_id;
-    } while (_advance_if_any_valid(lexer, num_delims, valid_delims));
+    } while (_advance_if_any_valid(lexer, num_delims, valid_delims, &did_something));
 
-    return false;
+    if (did_something) {
+        return ADVANCED_BUT_FAILED;
+    }
+    return DID_NOTHING;
 }
 
 static bool scan_string(
@@ -154,13 +175,16 @@ static bool scan_string(
         }
     }
     bool has_content = false;
+    enum TryMatchResult try_match_result;
     while(
-        !_try_match(lexer, num_avoid_delims, avoid_delims)
+        ((try_match_result = _try_match(lexer, num_avoid_delims, avoid_delims)) != FOUND_MATCH)
         && !(lexer->eof(lexer))
         && !(avoid_whitespace && isspace(lexer->lookahead))
     ) {
         has_content = true;
-        lexer->advance(lexer, false);
+        if (try_match_result != ADVANCED_BUT_FAILED) {
+            lexer->advance(lexer, false);
+        }
         lexer->mark_end(lexer);
     }
     return has_content;
