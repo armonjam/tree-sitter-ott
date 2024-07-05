@@ -140,8 +140,8 @@ gg |- z3
         premise: (rule_line
           (string)
           (string)
-          (string)
-          (comment))
+          (string))
+        (comment)
         premise: (rule_line
           (string)
           (string)
