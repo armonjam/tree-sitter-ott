@@ -34,6 +34,29 @@ term, M :: 'term_' ::=
       production_name: (production_name))))
 
 ===================
+production with slash
+:skip
+===================
+grammar
+
+term, M :: 'term_' ::=
+  | M1 / M2  :: :: sub
+---
+
+(source_file
+  (grammar_rule
+    (string_desc
+      (string))
+    (string_desc
+      (string))
+    (namespace_prefix)
+    (production
+      element: (string)
+      element: (string)
+      element: (string)
+      production_name: (production_name))))
+
+===================
 one production with dots
 ===================
 grammar
