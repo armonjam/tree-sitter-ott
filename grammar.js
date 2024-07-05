@@ -210,8 +210,8 @@ module.exports = grammar({
     ),
     // TODO: change to use allowed range of identifiers
     id: _ => /[a-zA-Z\d_]+/,
-    string: _ => /\S+/,
     comment: _ => /%.*/,
+    string: _ => /\S+/,
     _whitespace: _ => /\s+/,
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
