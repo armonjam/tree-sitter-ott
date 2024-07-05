@@ -67,7 +67,6 @@ module.exports = grammar({
     defn_rule: $ => seq(
       field('premise', repeat($.rule_line)),
       field('separator', $.rule_separator),
-      // TODO: requires a newline after the conclusion and so EOF is not supported
       field('conclusion', $.rule_line),
     ),
 
@@ -107,7 +106,6 @@ module.exports = grammar({
     ),
 
     production: $ => seq(
-      // TODO: using bar `|` in  hom_inner causes it to be highlighted, which is undesirable.
       '|',
       field('element', repeat($._element)),
       '::',
