@@ -73,13 +73,11 @@ static bool scan_eof(TSLexer *lexer) {
 static bool _advance_if_any_valid(
     TSLexer *lexer,
     int array_size,
-    const bool array[array_size],
-    bool *did_something
+    const bool array[array_size]
 ) {
     for (int i = 0; i < array_size; ++i) {
         if (array[i]) {
             lexer->advance(lexer, false);
-            *did_something = true;
             return true;
         }
     }
@@ -116,8 +114,8 @@ static bool _is_delim_matched(
 }
 
 enum TryMatchResult {
-    DID_NOTHING,
-    ADVANCED_BUT_FAILED,
+    FAILED_WITHOUT_ADVANCING,
+    FAILED_AFTER_ADVANCING,
     FOUND_MATCH,
 };
 static enum TryMatchResult _try_match(
@@ -125,22 +123,11 @@ static enum TryMatchResult _try_match(
     int num_delims,
     delim_exp delims[num_delims]
 ) {
-    // TODO: so here is the issue,
-    // suppose you do a first pass, find that there is no closing square bracket,
-    // `]`, and so you eliminate it as a possible match. But, you see a `<` angle
-    // bracket, so you keep it as valid. Then the next time around, you find that
-    // the next character is `]`. So the `</` match fails and the function returns
-    // cause no other possible match exists. But now the lexer is at <, with its
-    // lookahead set to ]. The try_match returns false, and the string parser
-    // advances. But this means that the current character is now `]`, so the
-    // possibility of matching a `]]` double closing bracket with this `]` is
-    // not an option anymore!
     bool valid_delims[num_delims];
     for (int i = 0; i < num_delims; ++i) {
         valid_delims[i] = true;
     }
 
-    bool did_something = false;
     int match_id = 0;
     do {
         for (int delim_id = 0; delim_id < num_delims; ++delim_id) {
@@ -155,12 +142,12 @@ static enum TryMatchResult _try_match(
             }
         }
         ++match_id;
-    } while (_advance_if_any_valid(lexer, num_delims, valid_delims, &did_something));
+    } while (_advance_if_any_valid(lexer, num_delims, valid_delims));
 
-    if (did_something) {
-        return ADVANCED_BUT_FAILED;
+    if (match_id > 1) {
+        return FAILED_AFTER_ADVANCING;
     }
-    return DID_NOTHING;
+    return FAILED_WITHOUT_ADVANCING;
 }
 
 static bool scan_string(
@@ -181,11 +168,11 @@ static bool scan_string(
         && !(lexer->eof(lexer))
         && !(avoid_whitespace && isspace(lexer->lookahead))
     ) {
-        has_content = true;
-        if (try_match_result != ADVANCED_BUT_FAILED) {
+        if (try_match_result == FAILED_WITHOUT_ADVANCING) {
             lexer->advance(lexer, false);
         }
         lexer->mark_end(lexer);
+        has_content = true;
     }
     return has_content;
 }
