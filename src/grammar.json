@@ -92,6 +92,10 @@
         }
       ]
     },
+    "comment": {
+      "type": "PATTERN",
+      "value": "%.*"
+    },
     "defnclass": {
       "type": "SEQ",
       "members": [
@@ -486,7 +490,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "string"
+          "name": "_element_string"
         },
         {
           "type": "SYMBOL",
@@ -540,7 +544,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "string"
+              "name": "_element_string"
             },
             {
               "type": "STRING",
@@ -557,6 +561,15 @@
           ]
         }
       ]
+    },
+    "_element_string": {
+      "type": "ALIAS",
+      "content": {
+        "type": "PATTERN",
+        "value": "[^\\s/]+"
+      },
+      "named": true,
+      "value": "string"
     },
     "metavardefn": {
       "type": "SEQ",
@@ -934,10 +947,6 @@
     "id": {
       "type": "PATTERN",
       "value": "[a-zA-Z\\d_]+"
-    },
-    "comment": {
-      "type": "PATTERN",
-      "value": "%.*"
     },
     "string": {
       "type": "PATTERN",

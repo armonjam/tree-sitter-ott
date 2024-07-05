@@ -29,6 +29,7 @@ module.exports = grammar({
       // TODO: ...
     ),
 
+    comment: _ => /%.*/,
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     // % definition class
@@ -121,11 +122,13 @@ module.exports = grammar({
     production_name: $ => alias($.id, 'production_name'),
 
     _element: $ => choice(
-      $.string,
+      $._element_string,
       $.dots,
       seq('</', repeat($._element), '//', $.comprehension_bound, '/>'),
-      seq('</', repeat($._element), '//', $.string, '//', $.comprehension_bound, '/>'),
+      seq('</', repeat($._element), '//', $._element_string, '//', $.comprehension_bound, '/>'),
     ),
+
+    _element_string: $ => alias(/[^\s/]+/, $.string),
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     // % metavariable definition
@@ -212,7 +215,6 @@ module.exports = grammar({
     ),
     // TODO: change to use allowed range of identifiers
     id: _ => /[a-zA-Z\d_]+/,
-    comment: _ => /%.*/,
     string: _ => /\S+/,
     _whitespace: _ => /\s+/,
 
