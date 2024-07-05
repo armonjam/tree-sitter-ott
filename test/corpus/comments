@@ -20,6 +20,38 @@ Multi-line comment
   (comment)
   (comment))
 
+=======================
+Multi-line comment in defns
+=======================
+
+defns
+ttyping :: '' ::=
+
+defn
+gg |- m : sigma ::  :: typing :: t_
+by
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Hello, world!
+%%%%%%%%%%%%%%%%%%%%%%%%
+---
+
+(source_file
+  (defnclass
+    (defnclass_name)
+    (namespace_prefix)
+    (defn
+      (string)
+      (string)
+      (string)
+      (string)
+      (string)
+      (defn_name)
+      (namespace_prefix)))
+  (comment)
+  (comment)
+  (comment))
+
 ===================
 comment before file
 ===================

@@ -925,13 +925,13 @@
       "type": "PATTERN",
       "value": "[a-zA-Z\\d_]+"
     },
-    "string": {
-      "type": "PATTERN",
-      "value": "\\S+"
-    },
     "comment": {
       "type": "PATTERN",
       "value": "%.*"
+    },
+    "string": {
+      "type": "PATTERN",
+      "value": "\\S+"
     },
     "_whitespace": {
       "type": "PATTERN",
