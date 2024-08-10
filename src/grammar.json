@@ -76,6 +76,30 @@
                 "value": 1,
                 "content": {
                   "type": "STRING",
+                  "value": "subrules"
+                }
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_whitespace"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "subrules"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "TOKEN",
+              "content": {
+                "type": "PREC",
+                "value": 1,
+                "content": {
+                  "type": "STRING",
                   "value": "defns"
                 }
               }
@@ -95,6 +119,53 @@
     "comment": {
       "type": "PATTERN",
       "value": "%.*"
+    },
+    "subrules": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "[a-zA-Z\\d_]+"
+                },
+                "named": true,
+                "value": "string"
+              }
+            ]
+          },
+          {
+            "type": "STRING",
+            "value": "<::"
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "[a-zA-Z\\d_]+"
+                },
+                "named": true,
+                "value": "string"
+              }
+            ]
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "homomorphism"
+            }
+          }
+        ]
+      }
     },
     "defnclass": {
       "type": "SEQ",

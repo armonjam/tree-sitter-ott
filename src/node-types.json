@@ -520,12 +520,35 @@
         {
           "type": "metavardefn",
           "named": true
+        },
+        {
+          "type": "subrules",
+          "named": true
         }
       ]
     }
   },
   {
     "type": "string_desc",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "homomorphism",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "subrules",
     "named": true,
     "fields": {},
     "children": {
@@ -585,6 +608,10 @@
   },
   {
     "type": "</",
+    "named": false
+  },
+  {
+    "type": "<::",
     "named": false
   },
   {
@@ -650,6 +677,10 @@
   {
     "type": "string",
     "named": true
+  },
+  {
+    "type": "subrules",
+    "named": false
   },
   {
     "type": "{{",
